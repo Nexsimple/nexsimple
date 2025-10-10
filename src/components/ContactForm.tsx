@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2, Send } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +44,22 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
+      // Salvar no banco de dados
+      const { error: dbError } = await supabase
+        .from('leads')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          source: 'website'
+        }]);
+
+      if (dbError) throw dbError;
+
+      // Enviar para webhook
+      await fetch(
         "https://brasfrut-n8n.rnnqth.easypanel.host/webhook/fe6eb799-e0e1-4703-acf8-0fb80ce45a7c",
         {
           method: "POST",
@@ -54,19 +70,15 @@ const ContactForm = () => {
         }
       );
 
-      if (response.ok) {
-        toast.success("✅ Obrigado! Um especialista da Nexsimple entrará em contato em breve.");
-        // Limpar formulário
-        setFormData({
-          name: "",
-          company: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-      } else {
-        throw new Error("Erro ao enviar");
-      }
+      toast.success("✅ Obrigado! Um especialista da Nexsimple entrará em contato em breve.");
+      
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
     } catch (error) {
       toast.error("❌ Algo deu errado. Tente novamente em instantes.");
       console.error("Erro ao enviar formulário:", error);
