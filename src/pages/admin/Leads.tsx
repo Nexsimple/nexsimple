@@ -11,7 +11,8 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { toast } from 'sonner';
-import { Search, Trash2, Download, StickyNote } from 'lucide-react';
+import { Search, Trash2, Download, StickyNote, CalendarPlus } from 'lucide-react';
+import { CreateAppointmentDialog } from '@/components/admin/CreateAppointmentDialog';
 
 interface Lead {
   id: string;
@@ -31,6 +32,8 @@ export default function AdminLeads() {
   const [filteredLeads, setFilteredLeads] = useState<Lead[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const [appointmentDialogOpen, setAppointmentDialogOpen] = useState(false);
 
   useEffect(() => {
     loadLeads();
@@ -262,6 +265,17 @@ export default function AdminLeads() {
                     </SelectContent>
                   </Select>
 
+                  <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setSelectedLead(lead);
+                      setAppointmentDialogOpen(true);
+                    }}
+                  >
+                    <CalendarPlus className="h-4 w-4 mr-2" />
+                    Agendar
+                  </Button>
+
                   <AlertDialog>
                     <AlertDialogTrigger asChild>
                       <Button variant="destructive" size="icon">
@@ -295,6 +309,18 @@ export default function AdminLeads() {
           </Card>
         )}
       </div>
+
+      <CreateAppointmentDialog
+        open={appointmentDialogOpen}
+        onOpenChange={setAppointmentDialogOpen}
+        leadData={selectedLead ? {
+          name: selectedLead.name,
+          email: selectedLead.email,
+          phone: selectedLead.phone,
+          leadId: selectedLead.id
+        } : undefined}
+        onSuccess={loadLeads}
+      />
     </div>
   );
 }
