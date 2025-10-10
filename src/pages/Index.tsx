@@ -10,8 +10,11 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 const Index = () => {
+  usePageTracking();
+
   return (
     <main className="min-h-screen">
       <Hero />
