@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Calendar, ArrowDown } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Hero = () => {
+  const { getSetting, isLoading } = useSiteSettings();
+
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
+
+  if (isLoading) {
+    return <div className="min-h-screen flex items-center justify-center bg-secondary" />;
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -57,7 +64,7 @@ const Hero = () => {
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
             <span className="text-white text-sm font-medium">
-              Líderes em Automação com IA
+              {getSetting('hero_badge_text', 'Líderes em Automação com IA')}
             </span>
           </motion.div>
 
@@ -68,7 +75,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Automatize e Acelere Seu Negócio com{" "}
+            {getSetting('hero_title', 'Automatize e Acelere Seu Negócio com Inteligência Artificial').split(' IA')[0]}{" "}
             <span className="text-primary">Inteligência Artificial</span>
           </motion.h1>
 
@@ -79,9 +86,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Transforme processos manuais em automações inteligentes. Conecte
-            todos os setores da sua empresa e multiplique resultados com chatbots,
-            ERP integrado e soluções sob medida.
+            {getSetting('hero_subtitle', 'Transformamos empresas com soluções de automação inteligente')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -98,13 +103,13 @@ const Hero = () => {
                 asChild
               >
                 <a
-                  href="https://wa.me/556492698259"
+                  href={getSetting('whatsapp_link', 'https://wa.me/556492698259')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  Falar com Especialista 🔥
+                  {getSetting('hero_cta_primary', 'Falar com Especialista 🔥')}
                 </a>
               </Button>
             </motion.div>
@@ -117,7 +122,7 @@ const Hero = () => {
                 onClick={scrollToContact}
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Agendar Demo Gratuita
+                {getSetting('hero_cta_secondary', 'Agendar Demo Gratuita')}
               </Button>
             </motion.div>
           </motion.div>
@@ -130,9 +135,18 @@ const Hero = () => {
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { number: "+500", label: "Automações Implementadas" },
-              { number: "+1M", label: "Processos Otimizados" },
-              { number: "+100", label: "Empresas Transformadas" },
+              { 
+                number: getSetting('hero_stat_1_number', '+500'), 
+                label: getSetting('hero_stat_1_label', 'Automações Implementadas') 
+              },
+              { 
+                number: getSetting('hero_stat_2_number', '+1M'), 
+                label: getSetting('hero_stat_2_label', 'Processos Otimizados') 
+              },
+              { 
+                number: getSetting('hero_stat_3_number', '+100'), 
+                label: getSetting('hero_stat_3_label', 'Empresas Transformadas') 
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}

@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
 
   return (
     <main className="min-h-screen">
+      <SEOHead />
       <Hero />
       <ProblemSection />
       <Solutions />

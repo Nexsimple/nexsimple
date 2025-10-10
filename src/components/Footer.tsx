@@ -1,7 +1,9 @@
 import { Linkedin, Instagram, Youtube } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { getSetting } = useSiteSettings();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -15,10 +17,10 @@ const Footer = () => {
           {/* Logo e Descrição */}
           <div>
             <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-white bg-clip-text text-transparent">
-              Nexsimple
+              {getSetting('company_name', 'Nexsimple')}
             </h3>
             <p className="text-white/80 leading-relaxed">
-              Transformamos empresas com soluções de automação inteligente e IA.
+              {getSetting('hero_subtitle', 'Transformamos empresas com soluções de automação inteligente e IA.')}
             </p>
           </div>
 
@@ -57,33 +59,39 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Redes Sociais</h4>
             <div className="flex gap-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
+              {getSetting('social_linkedin') && (
+                <a
+                  href={getSetting('social_linkedin')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              )}
+              {getSetting('social_instagram') && (
+                <a
+                  href={getSetting('social_instagram')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              )}
+              {getSetting('social_youtube') && (
+                <a
+                  href={getSetting('social_youtube')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all hover:scale-110"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -92,7 +100,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm text-center md:text-left">
-              © {currentYear} Nexsimple - Todos os direitos reservados.
+              © {currentYear} {getSetting('company_name', 'Nexsimple')} - Todos os direitos reservados.
             </p>
             <a 
               href="#" 

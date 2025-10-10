@@ -6,8 +6,10 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const ContactForm = () => {
+  const { getSetting } = useSiteSettings();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -58,17 +60,17 @@ const ContactForm = () => {
 
       if (dbError) throw dbError;
 
-      // Enviar para webhook
-      await fetch(
-        "https://brasfrut-n8n.rnnqth.easypanel.host/webhook/fe6eb799-e0e1-4703-acf8-0fb80ce45a7c",
-        {
+      // Enviar para webhook (se configurado)
+      const webhookUrl = getSetting('webhook_url', '');
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
-      );
+        });
+      }
 
       toast.success("✅ Obrigado! Um especialista da Nexsimple entrará em contato em breve.");
       
