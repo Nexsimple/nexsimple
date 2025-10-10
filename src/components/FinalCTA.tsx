@@ -1,0 +1,179 @@
+import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { MessageCircle, Shield, Clock, Users } from "lucide-react";
+
+const guarantees = [
+  {
+    icon: Shield,
+    text: "Garantia de 30 dias",
+  },
+  {
+    icon: Clock,
+    text: "Suporte 24/7",
+  },
+  {
+    icon: Users,
+    text: "Time dedicado",
+  },
+];
+
+const FinalCTA = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      {/* Gradient Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(135deg, hsl(213, 73%, 15%) 0%, hsl(162, 65%, 47%) 100%)",
+        }}
+      />
+
+      {/* Animated Background Elements */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+        className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
+          >
+            <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
+            <span className="text-white text-sm font-medium">
+              <span className="font-bold">147 empresas</span> consultando agora
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Pronto para Transformar Sua Empresa?
+          </h2>
+
+          {/* Subheadline */}
+          <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Junte-se a mais de 500 empresas que já automatizaram processos e
+            multiplicaram resultados com a Nexsimple
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                className="bg-white text-secondary hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-2xl w-full sm:w-auto group"
+                asChild
+              >
+                <a
+                  href="https://wa.me/556492698259"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
+                  Falar com Especialista Agora 🔥
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-secondary font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                onClick={scrollToContact}
+              >
+                Agendar Demonstração Gratuita
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Guarantees */}
+          <div className="flex flex-wrap justify-center gap-8 mb-8">
+            {guarantees.map((guarantee, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-center gap-2 text-white/90"
+              >
+                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <guarantee.icon className="w-5 h-5 text-white" />
+                </div>
+                <span className="font-medium">{guarantee.text}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4 text-white/70 text-sm"
+          >
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              Dados 100% Seguros
+            </div>
+            <div className="hidden sm:block">•</div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              Implementação Rápida
+            </div>
+            <div className="hidden sm:block">•</div>
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              Time Especializado
+            </div>
+          </motion.div>
+
+          {/* Urgency Message */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-white/60 text-sm mt-8"
+          >
+            ⏰ Vagas limitadas para consultorias este mês
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default FinalCTA;
