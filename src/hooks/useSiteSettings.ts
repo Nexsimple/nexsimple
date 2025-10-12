@@ -56,8 +56,22 @@ export const useSiteSettings = () => {
   };
 
   const getSetting = (key: string, defaultValue: any = '') => {
-    return settings[key] || defaultValue;
+    try {
+      return settings[key] ? JSON.parse(settings[key]) : defaultValue;
+    } catch {
+      return settings[key] || defaultValue;
+    }
   };
 
-  return { settings, isLoading, getSetting };
+  // Return all settings as properties
+  const parsedSettings = Object.keys(settings).reduce((acc, key) => {
+    try {
+      acc[key] = JSON.parse(settings[key]);
+    } catch {
+      acc[key] = settings[key];
+    }
+    return acc;
+  }, {} as any);
+
+  return { ...parsedSettings, isLoading, getSetting };
 };

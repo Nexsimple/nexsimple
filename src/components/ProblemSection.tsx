@@ -1,30 +1,32 @@
 import { motion } from "framer-motion";
 import { Clock, UserX, TrendingDown, Unplug } from "lucide-react";
-
-const problems = [
-  {
-    icon: Clock,
-    title: "Processos Manuais Demorados",
-    description: "Sua equipe perde horas em tarefas repetitivas que poderiam ser automatizadas, reduzindo produtividade e aumentando custos.",
-  },
-  {
-    icon: UserX,
-    title: "Atendimento Ineficiente",
-    description: "Clientes esperam muito tempo por respostas, gerando insatisfação e perda de oportunidades de negócio.",
-  },
-  {
-    icon: TrendingDown,
-    title: "Baixa Conversão de Vendas",
-    description: "Falta de follow-up automatizado e processos desorganizados fazem você perder vendas todos os dias.",
-  },
-  {
-    icon: Unplug,
-    title: "Sistemas Desconectados",
-    description: "Dados espalhados em múltiplas plataformas sem integração, dificultando análises e tomada de decisões.",
-  },
-];
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const ProblemSection = () => {
+  const settings = useSiteSettings();
+
+  const problems = [
+    {
+      icon: Clock,
+      title: settings.problem_1_title || "Perda de Tempo = Perda de Dinheiro",
+      description: settings.problem_1_desc || "Sua equipe passa 20h/semana fazendo trabalho chato",
+    },
+    {
+      icon: UserX,
+      title: settings.problem_2_title || "Clientes Desistindo",
+      description: settings.problem_2_desc || "Demora no atendimento? Cliente vai embora",
+    },
+    {
+      icon: TrendingDown,
+      title: settings.problem_3_title || "Vendas Escorrendo Pelos Dedos",
+      description: settings.problem_3_desc || "Sem follow-up automático, 70% dos interessados somem",
+    },
+    {
+      icon: Unplug,
+      title: settings.problem_4_title || "Informação Bagunçada",
+      description: settings.problem_4_desc || "Dados espalhados = decisões erradas = dinheiro perdido",
+    },
+  ];
   return (
     <section className="py-24 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
       {/* Decorative Background */}
@@ -39,10 +41,10 @@ const ProblemSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Esses problemas estão custando caro para sua empresa
+            {settings.problem_title || "Esses Problemas Estão Sugando Seu Dinheiro"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Você não está sozinho. Milhares de empresas enfrentam os mesmos desafios todos os dias.
+            {settings.problem_subtitle || "Veja quanto você perde todo mês"}
           </p>
         </motion.div>
 

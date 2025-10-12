@@ -1,49 +1,51 @@
 import { Brain, MessageSquare, Share2, BarChart3, Database, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-const services = [
-  {
-    icon: Brain,
-    title: "Estrutura de IA",
-    description: "Desenvolvimento de sites integrados com n8n para automação total de processos empresariais.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Atendentes com IA",
-    description: "Criação de bots de atendimento via chat e voz para oferecer suporte 24/7.",
-  },
-  {
-    icon: Share2,
-    title: "Automação de Redes Sociais",
-    description: "Agendamento, respostas automáticas e análise de performance em suas redes.",
-  },
-  {
-    icon: BarChart3,
-    title: "Automação de Análise de Marketing",
-    description: "Dashboards e insights automáticos com dados em tempo real.",
-  },
-  {
-    icon: Database,
-    title: "Agentes de Informação",
-    description: "Centralização de dados internos para treinar e capacitar equipes.",
-  },
-  {
-    icon: Zap,
-    title: "Integrações com APIs Externas",
-    description: "Conectamos seus sistemas e plataformas para um fluxo operacional unificado.",
-  },
-];
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const Services = () => {
+  const settings = useSiteSettings();
+
+  const services = [
+    {
+      icon: Brain,
+      title: settings.solution_1_title || "Robô que Trabalha 24h por Você",
+      description: settings.solution_1_desc || "IA responde clientes automaticamente",
+    },
+    {
+      icon: MessageSquare,
+      title: settings.solution_2_title || "Atendente Digital Incansável",
+      description: settings.solution_2_desc || "Seu time nunca mais perde um lead",
+    },
+    {
+      icon: Share2,
+      title: settings.solution_3_title || "Redes Sociais no Piloto Automático",
+      description: settings.solution_3_desc || "Poste e venda automaticamente",
+    },
+    {
+      icon: BarChart3,
+      title: settings.solution_4_title || "Painel do Dinheiro em Tempo Real",
+      description: settings.solution_4_desc || "Veja de onde vem cada centavo",
+    },
+    {
+      icon: Database,
+      title: settings.solution_5_title || "Cérebro Digital da Empresa",
+      description: settings.solution_5_desc || "Todas as informações em um só lugar",
+    },
+    {
+      icon: Zap,
+      title: settings.solution_6_title || "Tudo Conectado, Zero Trabalho Manual",
+      description: settings.solution_6_desc || "Seus sistemas conversam sozinhos",
+    },
+  ];
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Nossas Soluções
+            {settings.solutions_title || "Como a Nexsimple Multiplica Seus Lucros"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Oferecemos uma gama completa de serviços de automação com IA para transformar sua empresa
+            {settings.solutions_subtitle || "Tecnologia que faz seu dinheiro trabalhar por você"}
           </p>
         </div>
 

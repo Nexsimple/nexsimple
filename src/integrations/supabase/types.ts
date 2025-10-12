@@ -94,6 +94,93 @@ export type Database = {
           },
         ]
       }
+      case_studies: {
+        Row: {
+          active: boolean | null
+          challenge: string
+          company_name: string
+          created_at: string | null
+          id: string
+          image_url: string | null
+          industry: string | null
+          order_index: number | null
+          result_1_label: string | null
+          result_1_metric: string | null
+          result_2_label: string | null
+          result_2_metric: string | null
+          result_3_label: string | null
+          result_3_metric: string | null
+          solution: string
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          challenge: string
+          company_name: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          industry?: string | null
+          order_index?: number | null
+          result_1_label?: string | null
+          result_1_metric?: string | null
+          result_2_label?: string | null
+          result_2_metric?: string | null
+          result_3_label?: string | null
+          result_3_metric?: string | null
+          solution: string
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          challenge?: string
+          company_name?: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          industry?: string | null
+          order_index?: number | null
+          result_1_label?: string | null
+          result_1_metric?: string | null
+          result_2_label?: string | null
+          result_2_metric?: string | null
+          result_3_label?: string | null
+          result_3_metric?: string | null
+          solution?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      faqs: {
+        Row: {
+          active: boolean | null
+          answer: string
+          created_at: string | null
+          id: string
+          order_index: number | null
+          question: string
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          answer: string
+          created_at?: string | null
+          id?: string
+          order_index?: number | null
+          question: string
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          answer?: string
+          created_at?: string | null
+          id?: string
+          order_index?: number | null
+          question?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           company: string | null
@@ -193,6 +280,51 @@ export type Database = {
           updated_at?: string
           updated_by?: string | null
           value?: Json
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          active: boolean | null
+          client_company: string | null
+          client_name: string
+          client_photo_url: string | null
+          client_role: string | null
+          created_at: string | null
+          id: string
+          order_index: number | null
+          rating: number | null
+          result_metric: string | null
+          testimonial: string
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          client_company?: string | null
+          client_name: string
+          client_photo_url?: string | null
+          client_role?: string | null
+          created_at?: string | null
+          id?: string
+          order_index?: number | null
+          rating?: number | null
+          result_metric?: string | null
+          testimonial: string
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          client_company?: string | null
+          client_name?: string
+          client_photo_url?: string | null
+          client_role?: string | null
+          created_at?: string | null
+          id?: string
+          order_index?: number | null
+          rating?: number | null
+          result_metric?: string | null
+          testimonial?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
