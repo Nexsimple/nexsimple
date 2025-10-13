@@ -7,7 +7,7 @@ import SocialProof from "@/components/SocialProof";
 import { Testimonials } from "@/components/Testimonials";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import CaseStudies from "@/components/CaseStudies";
-import { ROICalculator } from "@/components/ROICalculator";
+import ROICalculator from "@/components/ROICalculator";
 import { TrustSection } from "@/components/TrustSection";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";

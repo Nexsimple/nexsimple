@@ -136,3 +136,5 @@ export const ROICalculator = () => {
     </section>
   );
 };
+
+export default ROICalculator;
