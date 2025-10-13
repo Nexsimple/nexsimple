@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { MessageCircle, Shield, Clock, Users } from "lucide-react";
-
-const guarantees = [
-  {
-    icon: Shield,
-    text: "Garantia de 30 dias",
-  },
-  {
-    icon: Clock,
-    text: "Suporte 24/7",
-  },
-  {
-    icon: Users,
-    text: "Time dedicado",
-  },
-];
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const FinalCTA = () => {
+  const settings = useSiteSettings();
+
+  const guarantees = [
+    {
+      icon: Shield,
+      text: settings.final_cta_guarantee_1 || "Garantia de 30 dias",
+    },
+    {
+      icon: Clock,
+      text: settings.final_cta_guarantee_2 || "Suporte sempre que precisar",
+    },
+    {
+      icon: Users,
+      text: settings.final_cta_guarantee_3 || "Time só para você",
+    },
+  ];
+
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     contactSection?.scrollIntoView({ behavior: "smooth" });
@@ -70,19 +73,18 @@ const FinalCTA = () => {
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
             <span className="text-white text-sm font-medium">
-              <span className="font-bold">147 empresas</span> consultando agora
+              {settings.final_cta_badge || "147 empresários consultando agora"}
             </span>
           </motion.div>
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Pronto para Transformar Sua Empresa?
+            {settings.final_cta_title || "Quer Ganhar Mais Dinheiro com Menos Trabalho?"}
           </h2>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Junte-se a mais de 500 empresas que já automatizaram processos e
-            multiplicaram resultados com a Nexsimple
+            {settings.final_cta_subtitle || "Mais de 500 empresas já estão faturando MUITO mais. Você quer ficar para trás?"}
           </p>
 
           {/* CTA Buttons */}
@@ -100,7 +102,7 @@ const FinalCTA = () => {
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  Falar com Especialista Agora 🔥
+                  {settings.final_cta_button_1 || "Sim! Quero Ganhar Mais 🔥"}
                 </a>
               </Button>
             </motion.div>
@@ -112,7 +114,7 @@ const FinalCTA = () => {
                 className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-secondary font-semibold px-8 py-6 text-lg w-full sm:w-auto"
                 onClick={scrollToContact}
               >
-                Agendar Demonstração Gratuita
+                {settings.final_cta_button_2 || "Agendar Conversa Rápida (15 min)"}
               </Button>
             </motion.div>
           </div>
@@ -136,30 +138,6 @@ const FinalCTA = () => {
             ))}
           </div>
 
-          {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 text-white/70 text-sm"
-          >
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              Dados 100% Seguros
-            </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              Implementação Rápida
-            </div>
-            <div className="hidden sm:block">•</div>
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              Time Especializado
-            </div>
-          </motion.div>
-
           {/* Urgency Message */}
           <motion.p
             initial={{ opacity: 0 }}
@@ -168,7 +146,7 @@ const FinalCTA = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-white/60 text-sm mt-8"
           >
-            ⏰ Vagas limitadas para consultorias este mês
+            {settings.final_cta_urgency || "⏰ Só 3 vagas para consultoria grátis este mês"}
           </motion.p>
         </motion.div>
       </div>

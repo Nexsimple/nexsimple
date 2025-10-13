@@ -1,41 +1,14 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Clock, DollarSign, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
-const benefits = [
-  {
-    icon: TrendingUp,
-    metric: "90",
-    suffix: "%",
-    label: "Redução em Tarefas Manuais",
-    description: "Automatize processos e libere sua equipe para focar no que realmente importa",
-    color: "from-primary to-primary/80",
-  },
-  {
-    icon: Zap,
-    metric: "3",
-    suffix: "x",
-    label: "Mais Conversões de Vendas",
-    description: "Follow-up automático e atendimento instantâneo aumentam drasticamente suas vendas",
-    color: "from-accent to-accent/80",
-  },
-  {
-    icon: Clock,
-    metric: "24",
-    suffix: "/7",
-    label: "Disponibilidade Total",
-    description: "Atendimento ininterrupto via chatbots inteligentes, sem pausas ou feriados",
-    color: "from-secondary to-secondary/80",
-  },
-  {
-    icon: DollarSign,
-    metric: "20",
-    suffix: "k",
-    label: "Economia Média Mensal",
-    description: "Reduza custos operacionais e aumente eficiência com automação inteligente",
-    color: "from-primary to-accent",
-  },
-];
+const iconMap: Record<string, any> = {
+  TrendingUp,
+  Clock,
+  DollarSign,
+  Zap,
+};
 
 const CountUpNumber = ({ target, suffix }: { target: string; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -69,6 +42,43 @@ const CountUpNumber = ({ target, suffix }: { target: string; suffix: string }) =
 };
 
 const Benefits = () => {
+  const settings = useSiteSettings();
+
+  const benefits = [
+    {
+      icon: iconMap[settings.benefit_1_icon || 'TrendingUp'],
+      metric: settings.benefit_1_metric || "90",
+      suffix: settings.benefit_1_suffix || "%",
+      label: settings.benefit_1_label || "Menos Trabalho Chato",
+      description: settings.benefit_1_desc || "Sua equipe para de perder tempo e foca em VENDER. Resultado: +R$ 40.000/mês",
+      color: "from-primary to-primary/80",
+    },
+    {
+      icon: iconMap[settings.benefit_2_icon || 'Zap'],
+      metric: settings.benefit_2_metric || "3",
+      suffix: settings.benefit_2_suffix || "x",
+      label: settings.benefit_2_label || "Mais Vendas",
+      description: settings.benefit_2_desc || "Resposta instantânea + follow-up automático = cliente compra na hora",
+      color: "from-accent to-accent/80",
+    },
+    {
+      icon: iconMap[settings.benefit_3_icon || 'Clock'],
+      metric: settings.benefit_3_metric || "24",
+      suffix: settings.benefit_3_suffix || "/7",
+      label: settings.benefit_3_label || "Nunca Perde Cliente",
+      description: settings.benefit_3_desc || "Atendimento 24h sem pagar hora extra. Cliente feliz, carteira cheia",
+      color: "from-secondary to-secondary/80",
+    },
+    {
+      icon: iconMap[settings.benefit_4_icon || 'DollarSign'],
+      metric: settings.benefit_4_metric || "20",
+      suffix: settings.benefit_4_suffix || "k",
+      label: settings.benefit_4_label || "Economia Por Mês",
+      description: settings.benefit_4_desc || "Menos funcionários, zero erro, processos rápidos. Dinheiro no bolso",
+      color: "from-primary to-accent",
+    },
+  ];
+
   return (
     <section className="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
       {/* Animated Background */}
@@ -86,10 +96,10 @@ const Benefits = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Resultados Reais e Mensuráveis
+            {settings.benefits_title || "Resultados Que Você Vai Ver em 30 Dias"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Veja o impacto que nossa automação inteligente traz para empresas como a sua
+            {settings.benefits_subtitle || "Clientes reais economizaram MUITO dinheiro"}
           </p>
         </motion.div>
 

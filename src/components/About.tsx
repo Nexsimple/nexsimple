@@ -1,29 +1,32 @@
 import { CheckCircle2, Rocket, Shield, Sparkles } from "lucide-react";
-
-const differentials = [
-  {
-    icon: CheckCircle2,
-    title: "+50 automações implementadas",
-    description: "Experiência comprovada em diversos setores",
-  },
-  {
-    icon: Rocket,
-    title: "+100 mil processos otimizados",
-    description: "Escala e eficiência garantidas",
-  },
-  {
-    icon: Shield,
-    title: "+20 empresas transformadas",
-    description: "Resultados reais e mensuráveis",
-  },
-  {
-    icon: Sparkles,
-    title: "Integração total n8n",
-    description: "Do frontend ao backend sem fricção",
-  },
-];
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const About = () => {
+  const settings = useSiteSettings();
+
+  const differentials = [
+    {
+      icon: CheckCircle2,
+      title: settings.about_stat_1_number || "+50",
+      description: settings.about_stat_1_label || "Empresas Lucrando Mais",
+    },
+    {
+      icon: Rocket,
+      title: settings.about_stat_2_number || "+100k",
+      description: settings.about_stat_2_label || "Processos Rodando Sozinhos",
+    },
+    {
+      icon: Shield,
+      title: settings.about_stat_3_number || "+R$ 2M",
+      description: settings.about_stat_3_label || "Economizados Pelos Clientes",
+    },
+    {
+      icon: Sparkles,
+      title: settings.about_stat_4_number || "100%",
+      description: settings.about_stat_4_label || "Garantia de Resultado",
+    },
+  ];
+
   return (
     <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,16 +34,13 @@ const About = () => {
           {/* Text Content */}
           <div className="animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">
-              Por que escolher a Nexsimple?
+              {settings.about_title || "Por Que Empresários Escolhem a Nexsimple?"}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              A Nexsimple une tecnologia e automação para oferecer controle total dos seus processos. 
-              Atuamos do frontend ao backend, integrando sistemas via n8n e soluções com Inteligência 
-              Artificial que realmente executam.
+              {settings.about_text_1 || "Sabe aquele dinheiro que você perde todo mês com processos lentos, clientes que somem e trabalho manual? A gente ELIMINA isso"}
             </p>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Nossa missão é transformar empresas através da automação inteligente, permitindo que você 
-              foque no que realmente importa: crescer e inovar.
+              {settings.about_text_2 || "Usamos robôs inteligentes que trabalham 24h, respondem clientes na hora e organizam tudo automaticamente. Você só vê o resultado: MAIS DINHEIRO"}
             </p>
 
             {/* Differentials Grid */}

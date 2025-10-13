@@ -2,32 +2,35 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Play, CheckCircle2, MessageSquare, BarChart3, Zap } from "lucide-react";
-
-const features = [
-  {
-    id: "chatbot",
-    icon: MessageSquare,
-    title: "Chatbot Inteligente",
-    description: "Atendimento 24/7 com IA",
-    demo: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
-  },
-  {
-    id: "analytics",
-    icon: BarChart3,
-    title: "Analytics em Tempo Real",
-    description: "Dashboards intuitivos e poderosos",
-    demo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-  },
-  {
-    id: "automation",
-    icon: Zap,
-    title: "Automação de Processos",
-    description: "Fluxos inteligentes e conectados",
-    demo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-  },
-];
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 const InteractiveDemo = () => {
+  const settings = useSiteSettings();
+
+  const features = [
+    {
+      id: "chatbot",
+      icon: MessageSquare,
+      title: settings.demo_feature_1_title || "Atendente Digital",
+      description: settings.demo_feature_1_desc || "Responde clientes sozinho, qualquer hora",
+      demo: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
+    },
+    {
+      id: "analytics",
+      icon: BarChart3,
+      title: settings.demo_feature_2_title || "Painel do Dinheiro",
+      description: settings.demo_feature_2_desc || "Veja suas vendas e lucros ao vivo",
+      demo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    },
+    {
+      id: "automation",
+      icon: Zap,
+      title: settings.demo_feature_3_title || "Automação Mágica",
+      description: settings.demo_feature_3_desc || "Tudo acontece sozinho, você só aproveita",
+      demo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    },
+  ];
+
   const [activeFeature, setActiveFeature] = useState(features[0]);
 
   return (
@@ -41,10 +44,10 @@ const InteractiveDemo = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Veja Nossa Plataforma em Ação
+            {settings.demo_title || "Veja Como Funciona (É Super Simples)"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Explore as funcionalidades que vão transformar sua empresa
+            {settings.demo_subtitle || "Mesmo sem entender nada de tecnologia, você vai entender isso"}
           </p>
         </motion.div>
 
@@ -137,7 +140,7 @@ const InteractiveDemo = () => {
                       className="bg-white text-secondary hover:bg-white/90"
                     >
                       <Play className="w-5 h-5 mr-2" />
-                      Assistir Demo Completa
+                      {settings.demo_button_text || "Quero Ver Funcionando na Minha Empresa"}
                     </Button>
                   </div>
                 </div>

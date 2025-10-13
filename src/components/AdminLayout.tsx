@@ -7,7 +7,8 @@ import {
   Settings, 
   LogOut,
   Video,
-  BarChart3
+  BarChart3,
+  FileText
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -32,6 +33,7 @@ export default function AdminLayout() {
     { to: '/admin/appointments', icon: Calendar, label: 'Agendamentos' },
     { to: '/admin/analytics', icon: BarChart3, label: 'Analytics' },
     { to: '/admin/videos', icon: Video, label: 'Vídeos' },
+    { to: '/admin/content', icon: FileText, label: 'Conteúdo' },
     { to: '/admin/settings', icon: Settings, label: 'Configurações' },
   ];
 
