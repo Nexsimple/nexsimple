@@ -1,8 +1,12 @@
-import { useState } from 'react';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card } from '@/components/ui/card';
-import { Palette, FileText, MessageSquare, Briefcase, HelpCircle, Megaphone, Image as ImageIcon } from 'lucide-react';
+import { FileText, MessageSquare, Briefcase, HelpCircle, Megaphone, Image as ImageIcon } from 'lucide-react';
+import { SectionsManager } from '@/components/admin/content/SectionsManager';
+import { TestimonialsManager } from '@/components/admin/content/TestimonialsManager';
+import { CaseStudiesManager } from '@/components/admin/content/CaseStudiesManager';
+import { FAQManager } from '@/components/admin/content/FAQManager';
+import { SEOManager } from '@/components/admin/content/SEOManager';
+import { CTAManager } from '@/components/admin/content/CTAManager';
 
 export default function AdminContent() {
   const { isLoading } = useAdminAuth();
@@ -18,12 +22,8 @@ export default function AdminContent() {
         <p className="text-muted-foreground">Edite todas as seções do site de forma centralizada</p>
       </div>
 
-      <Tabs defaultValue="visual" className="w-full">
-        <TabsList className="grid w-full grid-cols-7 mb-8">
-          <TabsTrigger value="visual" className="flex items-center gap-2">
-            <Palette className="w-4 h-4" />
-            Visual
-          </TabsTrigger>
+      <Tabs defaultValue="sections" className="w-full">
+        <TabsList className="grid w-full grid-cols-6 mb-8">
           <TabsTrigger value="sections" className="flex items-center gap-2">
             <FileText className="w-4 h-4" />
             Seções
@@ -50,67 +50,28 @@ export default function AdminContent() {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="visual" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Identidade Visual</h2>
-            <p className="text-muted-foreground">
-              Em breve: Upload de logo, favicon e gerenciamento de cores.
-            </p>
-          </Card>
-        </TabsContent>
-
         <TabsContent value="sections" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Seções do Site</h2>
-            <p className="text-muted-foreground">
-              Em breve: Edição de Hero, Problemas, Soluções, Benefícios, Sobre e Demonstração.
-            </p>
-          </Card>
+          <SectionsManager />
         </TabsContent>
 
         <TabsContent value="testimonials" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Depoimentos</h2>
-            <p className="text-muted-foreground">
-              Em breve: Gerenciamento completo de depoimentos de clientes.
-            </p>
-          </Card>
+          <TestimonialsManager />
         </TabsContent>
 
         <TabsContent value="cases" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Cases de Sucesso</h2>
-            <p className="text-muted-foreground">
-              Em breve: Gerenciamento de cases com métricas e resultados.
-            </p>
-          </Card>
+          <CaseStudiesManager />
         </TabsContent>
 
         <TabsContent value="faq" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Perguntas Frequentes</h2>
-            <p className="text-muted-foreground">
-              Em breve: CRUD completo de perguntas e respostas.
-            </p>
-          </Card>
+          <FAQManager />
         </TabsContent>
 
         <TabsContent value="cta" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Chamadas para Ação</h2>
-            <p className="text-muted-foreground">
-              Em breve: Edição de CTAs finais e botões.
-            </p>
-          </Card>
+          <CTAManager />
         </TabsContent>
 
         <TabsContent value="seo" className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-4">SEO e Meta Tags</h2>
-            <p className="text-muted-foreground">
-              Em breve: Configuração completa de SEO, Open Graph e Schema.org.
-            </p>
-          </Card>
+          <SEOManager />
         </TabsContent>
       </Tabs>
     </div>
