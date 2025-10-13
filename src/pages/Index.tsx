@@ -15,7 +15,6 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
-import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 const Index = () => {
@@ -40,7 +39,6 @@ const Index = () => {
       <ContactForm />
       <Footer />
       <FloatingWhatsApp />
-      <ExitIntentPopup />
     </main>
   );
 };
