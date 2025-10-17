@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
-import { Building2, Share2, Search } from 'lucide-react';
+import { Building2, Share2, Search, Activity } from 'lucide-react';
 
 interface Setting {
   id: string;
@@ -100,6 +100,10 @@ const Settings = () => {
             <Search className="h-4 w-4 mr-2" />
             SEO
           </TabsTrigger>
+          <TabsTrigger value="tracking">
+            <Activity className="h-4 w-4 mr-2" />
+            Rastreamento
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="company">
@@ -184,6 +188,64 @@ const Settings = () => {
                 </div>
               ))}
               <Button onClick={() => handleSave('seo')}>
+                Salvar Alterações
+              </Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="tracking">
+          <Card>
+            <CardHeader>
+              <CardTitle>Rastreamento e Conversões</CardTitle>
+              <CardDescription>
+                Configure pixels e códigos de rastreamento para anúncios
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="facebook_pixel_id">
+                  Facebook/Meta Pixel ID
+                </Label>
+                <Input
+                  id="facebook_pixel_id"
+                  value={formData['facebook_pixel_id'] || ''}
+                  onChange={(e) => updateValue('facebook_pixel_id', e.target.value)}
+                  placeholder="123456789012345"
+                />
+                <p className="text-xs text-muted-foreground">
+                  O Pixel será carregado automaticamente no site e rastreará conversões quando o formulário for enviado
+                </p>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="google_ads_conversion_id">
+                  Google Ads Conversion ID
+                </Label>
+                <Input
+                  id="google_ads_conversion_id"
+                  value={formData['google_ads_conversion_id'] || ''}
+                  onChange={(e) => updateValue('google_ads_conversion_id', e.target.value)}
+                  placeholder="AW-123456789"
+                />
+                <p className="text-xs text-muted-foreground">
+                  ID de conversão do Google Ads para rastrear leads
+                </p>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="google_ads_conversion_label">
+                  Google Ads Conversion Label
+                </Label>
+                <Input
+                  id="google_ads_conversion_label"
+                  value={formData['google_ads_conversion_label'] || ''}
+                  onChange={(e) => updateValue('google_ads_conversion_label', e.target.value)}
+                  placeholder="abcDEfGhiJklMNOp"
+                />
+                <p className="text-xs text-muted-foreground">
+                  Label da conversão do Google Ads
+                </p>
+              </div>
+              <Button onClick={() => handleSave('tracking')}>
                 Salvar Alterações
               </Button>
             </CardContent>

@@ -89,6 +89,61 @@ const SEOHead = () => {
         document.head.appendChild(schemaScript);
       }
       schemaScript.textContent = JSON.stringify(schemaData);
+
+      // Facebook Pixel
+      if (settings.facebook_pixel_id) {
+        const pixelId = settings.facebook_pixel_id;
+        
+        // Inject Facebook Pixel base code
+        let fbScript = document.getElementById('fb-pixel-script') as HTMLScriptElement | null;
+        if (!fbScript) {
+          fbScript = document.createElement('script');
+          fbScript.id = 'fb-pixel-script';
+          fbScript.innerHTML = `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '${pixelId}');
+            fbq('track', 'PageView');
+          `;
+          document.head.appendChild(fbScript);
+
+          // Add noscript pixel
+          let fbNoscript = document.getElementById('fb-pixel-noscript') as HTMLElement | null;
+          if (!fbNoscript) {
+            fbNoscript = document.createElement('noscript');
+            fbNoscript.id = 'fb-pixel-noscript';
+            fbNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1" />`;
+            document.body.insertBefore(fbNoscript, document.body.firstChild);
+          }
+        }
+      }
+
+      // Google Ads Conversion
+      if (settings.google_ads_conversion_id) {
+        let gtagScript = document.getElementById('gtag-script') as HTMLScriptElement | null;
+        if (!gtagScript) {
+          const gtagSrc = document.createElement('script');
+          gtagSrc.async = true;
+          gtagSrc.src = `https://www.googletagmanager.com/gtag/js?id=${settings.google_ads_conversion_id}`;
+          document.head.appendChild(gtagSrc);
+
+          gtagScript = document.createElement('script');
+          gtagScript.id = 'gtag-script';
+          gtagScript.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${settings.google_ads_conversion_id}');
+          `;
+          document.head.appendChild(gtagScript);
+        }
+      }
     }
   }, [settings]);
 

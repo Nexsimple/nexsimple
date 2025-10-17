@@ -60,6 +60,28 @@ const ContactForm = () => {
 
       if (dbError) throw dbError;
 
+      // Rastrear conversão no Facebook Pixel
+      const facebookPixelId = getSetting('facebook_pixel_id', '');
+      if (facebookPixelId && typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'Contact Form',
+          content_category: 'Lead Generation',
+          value: formData.company || formData.name,
+          currency: 'BRL'
+        });
+      }
+
+      // Rastrear conversão no Google Ads
+      const googleAdsConversionId = getSetting('google_ads_conversion_id', '');
+      const googleAdsConversionLabel = getSetting('google_ads_conversion_label', '');
+      if (googleAdsConversionId && googleAdsConversionLabel && typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': `${googleAdsConversionId}/${googleAdsConversionLabel}`,
+          'value': 1.0,
+          'currency': 'BRL'
+        });
+      }
+
       // Enviar para webhook (se configurado)
       const webhookUrl = getSetting('webhook_url', '');
       if (webhookUrl) {
