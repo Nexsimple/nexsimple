@@ -14,7 +14,7 @@ export const ExitIntentPopup = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
-  const enabled = settings.exit_popup_enabled;
+  const enabled = settings.exit_popup_enabled === 'true'; // Parse as boolean
   const title = settings.exit_popup_title || 'Espere! Não Vá Embora de Mãos Vazias';
   const offer = settings.exit_popup_offer || 'E-book Grátis: 10 Formas de Economizar R$ 50k/ano';
 

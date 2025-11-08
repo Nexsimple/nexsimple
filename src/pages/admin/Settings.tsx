@@ -52,7 +52,7 @@ const Settings = () => {
     const updates = categorySettings.map(setting => 
       supabase
         .from('site_settings')
-        .update({ value: formData[setting.key] || setting.value })
+        .upsert({ key: setting.key, value: formData[setting.key] || setting.value, category: setting.category })
         .eq('id', setting.id)
     );
 
@@ -243,6 +243,20 @@ const Settings = () => {
                 />
                 <p className="text-xs text-muted-foreground">
                   Label da conversão do Google Ads
+                </p>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="webhook_url">
+                  URL do Webhook para Leads
+                </Label>
+                <Input
+                  id="webhook_url"
+                  value={formData['webhook_url'] || ''}
+                  onChange={(e) => updateValue('webhook_url', e.target.value)}
+                  placeholder="https://seusite.com/webhook"
+                />
+                <p className="text-xs text-muted-foreground">
+                  Envie dados do formulário de contato para um webhook externo (ex: n8n, Make)
                 </p>
               </div>
               <Button onClick={() => handleSave('tracking')}>

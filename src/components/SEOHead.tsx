@@ -28,12 +28,12 @@ const SEOHead = () => {
       updateMetaTag('robots', settings.seo_robots || 'index, follow');
 
       // Open Graph
-      updateMetaTag('og:title', settings.seo_title || 'Nexsimple - Automação com IA', true);
-      updateMetaTag('og:description', settings.seo_description || 'Transforme seu negócio com automação inteligente', true);
+      updateMetaTag('og:title', settings.og_title || settings.seo_title || 'Nexsimple - Automação com IA', true);
+      updateMetaTag('og:description', settings.og_description || settings.seo_description || 'Transforme seu negócio com automação inteligente', true);
       updateMetaTag('og:type', 'website', true);
       updateMetaTag('og:url', settings.seo_canonical_url || 'https://nexsimple.com', true);
-      if (settings.seo_og_image) {
-        updateMetaTag('og:image', settings.seo_og_image, true);
+      if (settings.og_image) {
+        updateMetaTag('og:image', settings.og_image, true);
       }
       updateMetaTag('og:locale', settings.seo_locale || 'pt_BR', true);
 
@@ -44,8 +44,8 @@ const SEOHead = () => {
       if (settings.seo_twitter_site) {
         updateMetaTag('twitter:site', settings.seo_twitter_site);
       }
-      if (settings.seo_og_image) {
-        updateMetaTag('twitter:image', settings.seo_og_image);
+      if (settings.og_image) {
+        updateMetaTag('twitter:image', settings.og_image);
       }
 
       // Canonical URL
@@ -61,9 +61,9 @@ const SEOHead = () => {
       const schemaData = {
         "@context": "https://schema.org",
         "@type": settings.schema_org_type || "Organization",
-        "name": settings.schema_org_name || "Nexsimple",
-        "description": settings.schema_org_description || "Automação inteligente para empresas",
-        "url": settings.seo_canonical_url || "https://nexsimple.com",
+        "name": settings.company_name || "Nexsimple",
+        "description": settings.seo_description || "Automação inteligente para empresas",
+        "url": settings.company_url || "https://nexsimple.com",
         "logo": settings.schema_org_logo || settings.site_logo_url,
         "telephone": settings.schema_org_contact_phone,
         "email": settings.schema_org_contact_email,

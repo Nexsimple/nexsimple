@@ -31,9 +31,15 @@ export const CTAManager = () => {
   const handleSave = async () => {
     setLoading(true);
     const updates = [
+      { key: 'final_cta_badge', value: settings.final_cta_badge, category: 'cta' },
       { key: 'final_cta_title', value: settings.final_cta_title, category: 'cta' },
       { key: 'final_cta_subtitle', value: settings.final_cta_subtitle, category: 'cta' },
-      { key: 'final_cta_button_text', value: settings.final_cta_button_text, category: 'cta' },
+      { key: 'final_cta_button_1', value: settings.final_cta_button_1, category: 'cta' }, // Changed from final_cta_button_text
+      { key: 'final_cta_button_2', value: settings.final_cta_button_2, category: 'cta' }, // Added button 2
+      { key: 'final_cta_guarantee_1', value: settings.final_cta_guarantee_1, category: 'cta' },
+      { key: 'final_cta_guarantee_2', value: settings.final_cta_guarantee_2, category: 'cta' },
+      { key: 'final_cta_guarantee_3', value: settings.final_cta_guarantee_3, category: 'cta' },
+      { key: 'final_cta_urgency', value: settings.final_cta_urgency, category: 'cta' },
       { key: 'whatsapp_enabled', value: settings.whatsapp_enabled, category: 'cta' },
       { key: 'whatsapp_number', value: settings.whatsapp_number, category: 'cta' },
       { key: 'whatsapp_message', value: settings.whatsapp_message, category: 'cta' }
@@ -66,6 +72,14 @@ export const CTAManager = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
+            <Label htmlFor="final_cta_badge">Texto do Badge</Label>
+            <Input
+              id="final_cta_badge"
+              value={settings.final_cta_badge || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_badge: e.target.value })}
+            />
+          </div>
+          <div>
             <Label htmlFor="final_cta_title">Título</Label>
             <Input
               id="final_cta_title"
@@ -83,11 +97,51 @@ export const CTAManager = () => {
             />
           </div>
           <div>
-            <Label htmlFor="final_cta_button_text">Texto do Botão</Label>
+            <Label htmlFor="final_cta_button_1">Texto do Botão 1</Label>
             <Input
-              id="final_cta_button_text"
-              value={settings.final_cta_button_text || ''}
-              onChange={(e) => setSettings({ ...settings, final_cta_button_text: e.target.value })}
+              id="final_cta_button_1"
+              value={settings.final_cta_button_1 || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_button_1: e.target.value })}
+            />
+          </div>
+          <div>
+            <Label htmlFor="final_cta_button_2">Texto do Botão 2</Label>
+            <Input
+              id="final_cta_button_2"
+              value={settings.final_cta_button_2 || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_button_2: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="final_cta_guarantee_1">Garantia 1</Label>
+            <Input
+              id="final_cta_guarantee_1"
+              value={settings.final_cta_guarantee_1 || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_guarantee_1: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="final_cta_guarantee_2">Garantia 2</Label>
+            <Input
+              id="final_cta_guarantee_2"
+              value={settings.final_cta_guarantee_2 || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_guarantee_2: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="final_cta_guarantee_3">Garantia 3</Label>
+            <Input
+              id="final_cta_guarantee_3"
+              value={settings.final_cta_guarantee_3 || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_guarantee_3: e.target.value })}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="final_cta_urgency">Mensagem de Urgência</Label>
+            <Input
+              id="final_cta_urgency"
+              value={settings.final_cta_urgency || ''}
+              onChange={(e) => setSettings({ ...settings, final_cta_urgency: e.target.value })}
             />
           </div>
         </CardContent>

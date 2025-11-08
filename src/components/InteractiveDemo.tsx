@@ -27,7 +27,7 @@ const InteractiveDemo = () => {
       icon: Zap,
       title: settings.demo_feature_3_title || "Automação Mágica",
       description: settings.demo_feature_3_desc || "Tudo acontece sozinho, você só aproveita",
-      demo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      demo: "https://images.unsplash.com/photo-1460925895917-afdab27c52f?w=800&h=600&fit=crop",
     },
   ];
 

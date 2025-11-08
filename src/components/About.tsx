@@ -7,23 +7,23 @@ const About = () => {
   const differentials = [
     {
       icon: CheckCircle2,
-      title: settings.about_stat_1_number || "+50",
-      description: settings.about_stat_1_label || "Empresas Lucrando Mais",
+      title: settings.about_stat_1_number || "Nossa",
+      description: settings.about_stat_1_label || "Metodologia",
     },
     {
       icon: Rocket,
-      title: settings.about_stat_2_number || "+100k",
-      description: settings.about_stat_2_label || "Processos Rodando Sozinhos",
+      title: settings.about_stat_2_number || "Equipe",
+      description: settings.about_stat_2_label || "Especializada",
     },
     {
       icon: Shield,
-      title: settings.about_stat_3_number || "+R$ 2M",
-      description: settings.about_stat_3_label || "Economizados Pelos Clientes",
+      title: settings.about_stat_3_number || "Foco",
+      description: settings.about_stat_3_label || "No Seu Resultado",
     },
     {
       icon: Sparkles,
-      title: settings.about_stat_4_number || "100%",
-      description: settings.about_stat_4_label || "Garantia de Resultado",
+      title: settings.about_stat_4_number || "Suporte",
+      description: settings.about_stat_4_label || "Personalizado",
     },
   ];
 

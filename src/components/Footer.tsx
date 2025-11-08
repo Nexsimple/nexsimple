@@ -27,32 +27,30 @@ const Footer = () => {
           {/* Navegação */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Navegação</h4>
-            <nav className="space-y-2">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="block text-white/80 hover:text-primary transition-colors"
-              >
-                Início
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="block text-white/80 hover:text-primary transition-colors"
-              >
-                Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="block text-white/80 hover:text-primary transition-colors"
-              >
-                Sobre
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block text-white/80 hover:text-primary transition-colors"
-              >
-                Contato
-              </button>
-            </nav>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="block text-white/80 hover:text-primary transition-colors"
+            >
+              Início
+            </button>
+            <button 
+              onClick={() => scrollToSection('services')}
+              className="block text-white/80 hover:text-primary transition-colors"
+            >
+              Serviços
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="block text-white/80 hover:text-primary transition-colors"
+            >
+              Sobre
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="block text-white/80 hover:text-primary transition-colors"
+            >
+              Contato
+            </button>
           </div>
 
           {/* Redes Sociais */}

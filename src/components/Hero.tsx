@@ -136,16 +136,16 @@ const Hero = () => {
           >
             {[
               { 
-                number: getSetting('hero_stat_1_number', '+500'), 
-                label: getSetting('hero_stat_1_label', 'Automações Implementadas') 
+                number: getSetting('hero_stat_1_number', 'Nossa Expertise'), 
+                label: getSetting('hero_stat_1_label', 'Em Automação e IA') 
               },
               { 
-                number: getSetting('hero_stat_2_number', '+1M'), 
-                label: getSetting('hero_stat_2_label', 'Processos Otimizados') 
+                number: getSetting('hero_stat_2_number', 'Foco Total'), 
+                label: getSetting('hero_stat_2_label', 'No Seu Resultado') 
               },
               { 
-                number: getSetting('hero_stat_3_number', '+100'), 
-                label: getSetting('hero_stat_3_label', 'Empresas Transformadas') 
+                number: getSetting('hero_stat_3_number', 'Suporte'), 
+                label: getSetting('hero_stat_3_label', 'Dedicado') 
               },
             ].map((stat, index) => (
               <motion.div
