@@ -15,8 +15,8 @@ export const ExitIntentPopup = () => {
   const [name, setName] = useState('');
 
   const enabled = settings.exit_popup_enabled === 'true'; // Parse as boolean
-  const title = settings.exit_popup_title || 'Espere! Não Vá Embora de Mãos Vazias';
-  const offer = settings.exit_popup_offer || 'E-book Grátis: 10 Formas de Economizar R$ 50k/ano';
+  const title = settings.exit_popup_title || 'Não Vá Embora Sem Este Conteúdo Exclusivo!';
+  const offer = settings.exit_popup_offer || 'E-book Grátis: O Guia Essencial para Automação Inteligente em Empresas';
 
   useEffect(() => {
     if (!enabled || hasShown) return;

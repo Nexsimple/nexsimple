@@ -47,34 +47,34 @@ const Benefits = () => {
   const benefits = [
     {
       icon: iconMap[settings.benefit_1_icon || 'TrendingUp'],
-      metric: settings.benefit_1_metric || "90",
-      suffix: settings.benefit_1_suffix || "%",
-      label: settings.benefit_1_label || "Menos Trabalho Chato",
-      description: settings.benefit_1_desc || "Sua equipe para de perder tempo e foca em VENDER. Resultado: +R$ 40.000/mês",
+      metric: settings.benefit_1_metric || "Maior",
+      suffix: settings.benefit_1_suffix || "Eficiência",
+      label: settings.benefit_1_label || "Operacional",
+      description: settings.benefit_1_desc || "Reduza o tempo gasto em tarefas manuais e otimize seus recursos, aumentando a produtividade da sua equipe.",
       color: "from-primary to-primary/80",
     },
     {
       icon: iconMap[settings.benefit_2_icon || 'Zap'],
-      metric: settings.benefit_2_metric || "3",
-      suffix: settings.benefit_2_suffix || "x",
-      label: settings.benefit_2_label || "Mais Vendas",
-      description: settings.benefit_2_desc || "Resposta instantânea + follow-up automático = cliente compra na hora",
+      metric: settings.benefit_2_metric || "Aumento",
+      suffix: settings.benefit_2_suffix || "de Vendas",
+      label: settings.benefit_2_label || "e Conversão",
+      description: settings.benefit_2_desc || "Com atendimento ágil e follow-up automatizado, transforme mais leads em clientes e impulsione seu faturamento.",
       color: "from-accent to-accent/80",
     },
     {
-      icon: iconMap[settings.benefit_3_icon || 'Clock'],
-      metric: settings.benefit_3_metric || "24",
-      suffix: settings.benefit_3_suffix || "/7",
-      label: settings.benefit_3_label || "Nunca Perde Cliente",
-      description: settings.benefit_3_desc || "Atendimento 24h sem pagar hora extra. Cliente feliz, carteira cheia",
+Map: Clock,
+      metric: settings.benefit_3_metric || "Disponibilidade",
+      suffix: settings.benefit_3_suffix || "Contínua",
+      label: settings.benefit_3_label || "para Clientes",
+      description: settings.benefit_3_desc || "Garanta que seus clientes sejam atendidos a qualquer hora, construindo lealdade e satisfação.",
       color: "from-secondary to-secondary/80",
     },
     {
       icon: iconMap[settings.benefit_4_icon || 'DollarSign'],
-      metric: settings.benefit_4_metric || "20",
-      suffix: settings.benefit_4_suffix || "k",
-      label: settings.benefit_4_label || "Economia Por Mês",
-      description: settings.benefit_4_desc || "Menos funcionários, zero erro, processos rápidos. Dinheiro no bolso",
+      metric: settings.benefit_4_metric || "Redução",
+      suffix: settings.benefit_4_suffix || "de Custos",
+      label: settings.benefit_4_label || "Operacionais",
+      description: settings.benefit_4_desc || "Minimize erros, otimize processos e realoque investimentos, gerando economia significativa para sua empresa.",
       color: "from-primary to-accent",
     },
   ];
@@ -96,10 +96,10 @@ const Benefits = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.benefits_title || "Resultados Que Você Vai Ver em 30 Dias"}
+            {settings.benefits_title || "Resultados Concretos que Você Pode Esperar"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {settings.benefits_subtitle || "Clientes reais economizaram MUITO dinheiro"}
+            {settings.benefits_subtitle || "Nossa abordagem focada em valor gera impacto real no seu negócio."}
           </p>
         </motion.div>
 

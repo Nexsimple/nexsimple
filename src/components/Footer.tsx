@@ -20,7 +20,7 @@ const Footer = () => {
               {getSetting('company_name', 'Nexsimple')}
             </h3>
             <p className="text-white/80 leading-relaxed">
-              {getSetting('hero_subtitle', 'Transformamos empresas com soluções de automação inteligente e IA.')}
+              {getSetting('hero_subtitle', 'Transformamos empresas com soluções de automação inteligente e IA, impulsionando a eficiência e o crescimento.')}
             </p>
           </div>
 

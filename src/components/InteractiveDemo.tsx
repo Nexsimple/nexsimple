@@ -11,22 +11,22 @@ const InteractiveDemo = () => {
     {
       id: "chatbot",
       icon: MessageSquare,
-      title: settings.demo_feature_1_title || "Atendente Digital",
-      description: settings.demo_feature_1_desc || "Responde clientes sozinho, qualquer hora",
+      title: settings.demo_feature_1_title || "Chatbot Inteligente",
+      description: settings.demo_feature_1_desc || "Experimente como a IA pode interagir com seus clientes, responder dúvidas e qualificar leads de forma autônoma.",
       demo: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
     },
     {
       id: "analytics",
       icon: BarChart3,
-      title: settings.demo_feature_2_title || "Painel do Dinheiro",
-      description: settings.demo_feature_2_desc || "Veja suas vendas e lucros ao vivo",
+      title: settings.demo_feature_2_title || "Análise de Dados Simplificada",
+      description: settings.demo_feature_2_desc || "Visualize em tempo real os principais indicadores do seu negócio através de dashboards intuitivos e personalizados.",
       demo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
     },
     {
       id: "automation",
       icon: Zap,
-      title: settings.demo_feature_3_title || "Automação Mágica",
-      description: settings.demo_feature_3_desc || "Tudo acontece sozinho, você só aproveita",
+      title: settings.demo_feature_3_title || "Fluxos de Automação Personalizados",
+      description: settings.demo_feature_3_desc || "Entenda como criamos sequências de tarefas automatizadas que conectam seus sistemas e otimizam processos.",
       demo: "https://images.unsplash.com/photo-1460925895917-afdab27c52f?w=800&h=600&fit=crop",
     },
   ];
@@ -44,10 +44,10 @@ const InteractiveDemo = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.demo_title || "Veja Como Funciona (É Super Simples)"}
+            {settings.demo_title || "Veja a Automação em Ação: Simples e Poderosa"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {settings.demo_subtitle || "Mesmo sem entender nada de tecnologia, você vai entender isso"}
+            {settings.demo_subtitle || "Descubra como nossas ferramentas transformam o dia a dia da sua empresa, mesmo sem conhecimento técnico avançado."}
           </p>
         </motion.div>
 
@@ -140,7 +140,7 @@ const InteractiveDemo = () => {
                       className="bg-white text-secondary hover:bg-white/90"
                     >
                       <Play className="w-5 h-5 mr-2" />
-                      {settings.demo_button_text || "Quero Ver Funcionando na Minha Empresa"}
+                      {settings.demo_button_text || "Quero uma Demonstração Personalizada"}
                     </Button>
                   </div>
                 </div>

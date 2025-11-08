@@ -5,8 +5,8 @@ import { useSiteSettings } from '@/hooks/useSiteSettings';
 export const FloatingWhatsApp = () => {
   const settings = useSiteSettings();
   
-  const whatsappNumber = settings.whatsapp_number || '5564926988259';
-  const whatsappMessage = settings.whatsapp_message || 'Olá! Quero saber mais sobre automação';
+  const whatsappNumber = settings.whatsapp_number || '5564926988259'; // Manter número padrão, ajustar no admin
+  const whatsappMessage = settings.whatsapp_message || 'Olá! Gostaria de agendar uma análise gratuita para minha empresa.';
   
   const handleClick = () => {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;

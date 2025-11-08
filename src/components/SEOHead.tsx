@@ -7,7 +7,7 @@ const SEOHead = () => {
   useEffect(() => {
     if (!settings.isLoading) {
       // Update document title
-      document.title = settings.seo_title || 'Nexsimple - Automação com IA';
+      document.title = settings.seo_title || 'Nexsimple | Automação Inteligente e IA para Empresas';
 
       // Update or create meta tags
       const updateMetaTag = (name: string, content: string, isProperty = false) => {
@@ -22,14 +22,14 @@ const SEOHead = () => {
       };
 
       // Basic SEO
-      updateMetaTag('description', settings.seo_description || 'Transforme seu negócio com automação inteligente');
-      updateMetaTag('keywords', settings.seo_keywords || 'automação, ia, chatbot, erp');
+      updateMetaTag('description', settings.seo_description || 'Transforme sua empresa com soluções de automação inteligente e inteligência artificial da Nexsimple. Otimize processos, aumente vendas e reduza custos.');
+      updateMetaTag('keywords', settings.seo_keywords || 'automação, inteligência artificial, IA, n8n, automação de processos, integração de sistemas, eficiência empresarial, crescimento, consultoria em automação');
       updateMetaTag('author', settings.seo_author || 'Nexsimple');
       updateMetaTag('robots', settings.seo_robots || 'index, follow');
 
       // Open Graph
-      updateMetaTag('og:title', settings.og_title || settings.seo_title || 'Nexsimple - Automação com IA', true);
-      updateMetaTag('og:description', settings.og_description || settings.seo_description || 'Transforme seu negócio com automação inteligente', true);
+      updateMetaTag('og:title', settings.og_title || settings.seo_title || 'Nexsimple | Automação Inteligente e IA para Empresas', true);
+      updateMetaTag('og:description', settings.og_description || settings.seo_description || 'Transforme sua empresa com soluções de automação inteligente e inteligência artificial da Nexsimple. Otimize processos, aumente vendas e reduza custos.', true);
       updateMetaTag('og:type', 'website', true);
       updateMetaTag('og:url', settings.seo_canonical_url || 'https://nexsimple.com', true);
       if (settings.og_image) {
@@ -39,8 +39,8 @@ const SEOHead = () => {
 
       // Twitter Cards
       updateMetaTag('twitter:card', settings.seo_twitter_card || 'summary_large_image');
-      updateMetaTag('twitter:title', settings.seo_title || 'Nexsimple - Automação com IA');
-      updateMetaTag('twitter:description', settings.seo_description || 'Transforme seu negócio com automação inteligente');
+      updateMetaTag('twitter:title', settings.seo_title || 'Nexsimple | Automação Inteligente e IA para Empresas');
+      updateMetaTag('twitter:description', settings.seo_description || 'Transforme sua empresa com soluções de automação inteligente e inteligência artificial da Nexsimple. Otimize processos, aumente vendas e reduza custos.');
       if (settings.seo_twitter_site) {
         updateMetaTag('twitter:site', settings.seo_twitter_site);
       }
@@ -61,8 +61,8 @@ const SEOHead = () => {
       const schemaData = {
         "@context": "https://schema.org",
         "@type": settings.schema_org_type || "Organization",
-        "name": settings.company_name || "Nexsimple",
-        "description": settings.seo_description || "Automação inteligente para empresas",
+        "name": settings.schema_org_name || "Nexsimple",
+        "description": settings.schema_org_description || "Empresa especializada em automação inteligente e inteligência artificial para otimização de processos e crescimento empresarial.",
         "url": settings.company_url || "https://nexsimple.com",
         "logo": settings.schema_org_logo || settings.site_logo_url,
         "telephone": settings.schema_org_contact_phone,

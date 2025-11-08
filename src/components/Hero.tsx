@@ -64,7 +64,7 @@ const Hero = () => {
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
             <span className="text-white text-sm font-medium">
-              {getSetting('hero_badge_text', 'Líderes em Automação com IA')}
+              {getSetting('hero_badge_text', 'Inovação Comprovada em Automação e IA')}
             </span>
           </motion.div>
 
@@ -75,7 +75,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            {getSetting('hero_title', 'Automatize e Acelere Seu Negócio com Inteligência Artificial').split(' IA')[0]}{" "}
+            {getSetting('hero_title', 'Desbloqueie o Potencial da Sua Empresa com Automação Inteligente e IA').split(' IA')[0]}{" "}
             <span className="text-primary">Inteligência Artificial</span>
           </motion.h1>
 
@@ -86,7 +86,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            {getSetting('hero_subtitle', 'Transformamos empresas com soluções de automação inteligente')}
+            {getSetting('hero_subtitle', 'Transformamos processos complexos em fluxos eficientes, liberando sua equipe para o que realmente importa: crescimento e estratégia.')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -109,7 +109,7 @@ const Hero = () => {
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  {getSetting('hero_cta_primary', 'Falar com Especialista 🔥')}
+                  {getSetting('hero_cta_primary', 'Agendar Análise Gratuita 🔥')}
                 </a>
               </Button>
             </motion.div>
@@ -122,7 +122,7 @@ const Hero = () => {
                 onClick={scrollToContact}
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                {getSetting('hero_cta_secondary', 'Agendar Demo Gratuita')}
+                {getSetting('hero_cta_secondary', 'Conheça Nossas Soluções')}
               </Button>
             </motion.div>
           </motion.div>
@@ -136,16 +136,16 @@ const Hero = () => {
           >
             {[
               { 
-                number: getSetting('hero_stat_1_number', 'Nossa Expertise'), 
+                number: getSetting('hero_stat_1_number', 'Expertise'), 
                 label: getSetting('hero_stat_1_label', 'Em Automação e IA') 
               },
               { 
-                number: getSetting('hero_stat_2_number', 'Foco Total'), 
-                label: getSetting('hero_stat_2_label', 'No Seu Resultado') 
+                number: getSetting('hero_stat_2_number', 'Metodologia'), 
+                label: getSetting('hero_stat_2_label', 'Comprovada em Resultados') 
               },
               { 
                 number: getSetting('hero_stat_3_number', 'Suporte'), 
-                label: getSetting('hero_stat_3_label', 'Dedicado') 
+                label: getSetting('hero_stat_3_label', 'Estratégico e Dedicado') 
               },
             ].map((stat, index) => (
               <motion.div

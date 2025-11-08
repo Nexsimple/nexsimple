@@ -7,23 +7,23 @@ const About = () => {
   const differentials = [
     {
       icon: CheckCircle2,
-      title: settings.about_stat_1_number || "Nossa",
-      description: settings.about_stat_1_label || "Metodologia",
+      title: settings.about_stat_1_number || "Metodologia",
+      description: settings.about_stat_1_label || "Orientada a Resultados",
     },
     {
       icon: Rocket,
       title: settings.about_stat_2_number || "Equipe",
-      description: settings.about_stat_2_label || "Especializada",
+      description: settings.about_stat_2_label || "Altamente Especializada",
     },
     {
       icon: Shield,
-      title: settings.about_stat_3_number || "Foco",
-      description: settings.about_stat_3_label || "No Seu Resultado",
+      title: settings.about_stat_3_number || "Soluções",
+      description: settings.about_stat_3_label || "Personalizadas",
     },
     {
       icon: Sparkles,
-      title: settings.about_stat_4_number || "Suporte",
-      description: settings.about_stat_4_label || "Personalizado",
+      title: settings.about_stat_4_number || "Parceria",
+      description: settings.about_stat_4_label || "e Suporte Contínuo",
     },
   ];
 
@@ -34,13 +34,13 @@ const About = () => {
           {/* Text Content */}
           <div className="animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">
-              {settings.about_title || "Por Que Empresários Escolhem a Nexsimple?"}
+              {settings.about_title || "Por Que a Nexsimple é a Escolha Certa para Sua Transformação Digital?"}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              {settings.about_text_1 || "Sabe aquele dinheiro que você perde todo mês com processos lentos, clientes que somem e trabalho manual? A gente ELIMINA isso"}
+              {settings.about_text_1 || "Na Nexsimple, entendemos que a automação e a inteligência artificial não são apenas ferramentas, mas catalisadores para o crescimento sustentável. Nosso foco é eliminar ineficiências e criar valor real para o seu negócio."}
             </p>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              {settings.about_text_2 || "Usamos robôs inteligentes que trabalham 24h, respondem clientes na hora e organizam tudo automaticamente. Você só vê o resultado: MAIS DINHEIRO"}
+              {settings.about_text_2 || "Com uma equipe de especialistas apaixonados por inovação, desenvolvemos soluções personalizadas que se integram perfeitamente à sua operação, garantindo resultados mensuráveis e um futuro mais eficiente."}
             </p>
 
             {/* Differentials Grid */}

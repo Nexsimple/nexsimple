@@ -56,9 +56,9 @@ export const SectionsManager = () => {
       fields: [
         { key: 'hero_title', label: 'Título Principal', type: 'text' },
         { key: 'hero_subtitle', label: 'Subtítulo', type: 'textarea' },
-        { key: 'hero_cta_primary', label: 'Texto do Botão Principal', type: 'text' }, // Changed from hero_cta_text
-        { key: 'hero_cta_secondary', label: 'Texto do Botão Secundário', type: 'text' }, // Added secondary CTA
-        { key: 'hero_badge_text', label: 'Texto do Badge', type: 'text' }, // Added badge text
+        { key: 'hero_cta_primary', label: 'Texto do Botão Principal', type: 'text' },
+        { key: 'hero_cta_secondary', label: 'Texto do Botão Secundário', type: 'text' },
+        { key: 'hero_badge_text', label: 'Texto do Badge', type: 'text' },
         { key: 'hero_stat_1_number', label: 'Estatística 1 (Número/Texto)', type: 'text' },
         { key: 'hero_stat_1_label', label: 'Estatística 1 (Rótulo)', type: 'text' },
         { key: 'hero_stat_2_number', label: 'Estatística 2 (Número/Texto)', type: 'text' },
@@ -71,8 +71,8 @@ export const SectionsManager = () => {
       title: 'Problemas',
       description: 'Seção de problemas que você resolve',
       fields: [
-        { key: 'problem_title', label: 'Título', type: 'text' }, // Corrected key from problems_title
-        { key: 'problem_subtitle', label: 'Subtítulo', type: 'textarea' }, // Corrected key from problems_subtitle
+        { key: 'problem_title', label: 'Título', type: 'text' },
+        { key: 'problem_subtitle', label: 'Subtítulo', type: 'textarea' },
         { key: 'problem_1_title', label: 'Problema 1 Título', type: 'text' },
         { key: 'problem_1_desc', label: 'Problema 1 Descrição', type: 'textarea' },
         { key: 'problem_2_title', label: 'Problema 2 Título', type: 'text' },
@@ -136,7 +136,7 @@ export const SectionsManager = () => {
       description: 'Sobre a empresa',
       fields: [
         { key: 'about_title', label: 'Título', type: 'text' },
-        { key: 'about_text_1', label: 'Texto 1', type: 'textarea' }, // Corrected key from about_description
+        { key: 'about_text_1', label: 'Texto 1', type: 'textarea' },
         { key: 'about_text_2', label: 'Texto 2', type: 'textarea' },
         { key: 'about_stat_1_number', label: 'Estatística 1 (Número/Texto)', type: 'text' },
         { key: 'about_stat_1_label', label: 'Estatística 1 (Rótulo)', type: 'text' },
@@ -193,6 +193,15 @@ export const SectionsManager = () => {
         { key: 'exit_popup_enabled', label: 'Ativar Popup de Saída (true/false)', type: 'text' },
         { key: 'exit_popup_title', label: 'Título do Popup', type: 'text' },
         { key: 'exit_popup_offer', label: 'Oferta do Popup', type: 'text' },
+      ]
+    },
+    {
+      title: 'Formulário de Contato',
+      description: 'Configurações do formulário de contato',
+      fields: [
+        { key: 'contact_form_title', label: 'Título do Formulário', type: 'text' },
+        { key: 'contact_form_subtitle', label: 'Subtítulo do Formulário', type: 'textarea' },
+        { key: 'webhook_url', label: 'URL do Webhook para Leads', type: 'text' },
       ]
     },
   ];

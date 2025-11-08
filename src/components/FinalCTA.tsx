@@ -9,15 +9,15 @@ const FinalCTA = () => {
   const guarantees = [
     {
       icon: Shield,
-      text: settings.final_cta_guarantee_1 || "Garantia de 30 dias",
+      text: settings.final_cta_guarantee_1 || "Compromisso com Seus Resultados",
     },
     {
       icon: Clock,
-      text: settings.final_cta_guarantee_2 || "Suporte sempre que precisar",
+      text: settings.final_cta_guarantee_2 || "Suporte Estratégico Contínuo",
     },
     {
       icon: Users,
-      text: settings.final_cta_guarantee_3 || "Time só para você",
+      text: settings.final_cta_guarantee_3 || "Soluções Personalizadas para Seu Negócio",
     },
   ];
 
@@ -73,18 +73,18 @@ const FinalCTA = () => {
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
             <span className="text-white text-sm font-medium">
-              {settings.final_cta_badge || "147 empresários consultando agora"}
+              {settings.final_cta_badge || "Sua Próxima Grande Decisão"}
             </span>
           </motion.div>
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            {settings.final_cta_title || "Quer Ganhar Mais Dinheiro com Menos Trabalho?"}
+            {settings.final_cta_title || "Pronto para Transformar Sua Empresa e Multiplicar Seus Resultados?"}
           </h2>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            {settings.final_cta_subtitle || "Mais de 500 empresas já estão faturando MUITO mais. Você quer ficar para trás?"}
+            {settings.final_cta_subtitle || "Junte-se a empresas que já estão colhendo os frutos da automação inteligente. Não deixe seu negócio para trás."}
           </p>
 
           {/* CTA Buttons */}
@@ -102,7 +102,7 @@ const FinalCTA = () => {
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  {settings.final_cta_button_1 || "Sim! Quero Ganhar Mais 🔥"}
+                  {settings.final_cta_button_1 || "Sim! Quero Minha Análise Gratuita!"}
                 </a>
               </Button>
             </motion.div>
@@ -114,7 +114,7 @@ const FinalCTA = () => {
                 className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-secondary font-semibold px-8 py-6 text-lg w-full sm:w-auto"
                 onClick={scrollToContact}
               >
-                {settings.final_cta_button_2 || "Agendar Conversa Rápida (15 min)"}
+                {settings.final_cta_button_2 || "Falar com um Especialista Agora"}
               </Button>
             </motion.div>
           </div>
@@ -146,7 +146,7 @@ const FinalCTA = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-white/60 text-sm mt-8"
           >
-            {settings.final_cta_urgency || "⏰ Só 3 vagas para consultoria grátis este mês"}
+            {settings.final_cta_urgency || "Invista no futuro da sua empresa. As oportunidades não esperam."}
           </motion.p>
         </motion.div>
       </div>

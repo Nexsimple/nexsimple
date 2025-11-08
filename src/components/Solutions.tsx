@@ -8,33 +8,33 @@ const Services = () => {
   const services = [
     {
       icon: Brain,
-      title: settings.solution_1_title || "Robô que Trabalha 24h por Você",
-      description: settings.solution_1_desc || "IA responde clientes automaticamente",
+      title: settings.solution_1_title || "Atendimento Inteligente 24/7",
+      description: settings.solution_1_desc || "Implementamos chatbots com IA que respondem a clientes e qualificam leads automaticamente, garantindo que nenhuma oportunidade seja perdida.",
     },
     {
       icon: MessageSquare,
-      title: settings.solution_2_title || "Atendente Digital Incansável",
-      description: settings.solution_2_desc || "Seu time nunca mais perde um lead",
+      title: settings.solution_2_title || "Automação de Vendas e Marketing",
+      description: settings.solution_2_desc || "Crie fluxos automatizados para nutrir leads, gerenciar campanhas e otimizar a comunicação, impulsionando suas vendas.",
     },
     {
       icon: Share2,
-      title: settings.solution_3_title || "Redes Sociais no Piloto Automático",
-      description: settings.solution_3_desc || "Poste e venda automaticamente",
+      title: settings.solution_3_title || "Integração de Sistemas Essenciais",
+      description: settings.solution_3_desc || "Conectamos seu CRM, ERP e outras plataformas, eliminando silos de informação e garantindo a fluidez dos dados.",
     },
     {
       icon: BarChart3,
-      title: settings.solution_4_title || "Painel do Dinheiro em Tempo Real",
-      description: settings.solution_4_desc || "Veja de onde vem cada centavo",
+      title: settings.solution_4_title || "Dashboards de Performance em Tempo Real",
+      description: settings.solution_4_desc || "Tenha uma visão clara e instantânea dos seus indicadores de negócio, permitindo decisões rápidas e assertivas.",
     },
     {
       icon: Database,
-      title: settings.solution_5_title || "Cérebro Digital da Empresa",
-      description: settings.solution_5_desc || "Todas as informações em um só lugar",
+      title: settings.solution_5_title || "Otimização de Processos Internos",
+      description: settings.solution_5_desc || "Automatizamos tarefas administrativas e operacionais, liberando sua equipe para focar em inovação e valor estratégico.",
     },
     {
       icon: Zap,
-      title: settings.solution_6_title || "Tudo Conectado, Zero Trabalho Manual",
-      description: settings.solution_6_desc || "Seus sistemas conversam sozinhos",
+      title: settings.solution_6_title || "Consultoria Estratégica em IA",
+      description: settings.solution_6_desc || "Nossos especialistas guiam sua empresa na adoção de IA, identificando as melhores aplicações para seus objetivos de negócio.",
     },
   ];
   return (
@@ -42,10 +42,10 @@ const Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.solutions_title || "Como a Nexsimple Multiplica Seus Lucros"}
+            {settings.solutions_title || "Nossas Soluções: O Caminho para a Eficiência e o Crescimento"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {settings.solutions_subtitle || "Tecnologia que faz seu dinheiro trabalhar por você"}
+            {settings.solutions_subtitle || "Tecnologia de ponta e expertise para transformar seus desafios em resultados tangíveis."}
           </p>
         </div>
 

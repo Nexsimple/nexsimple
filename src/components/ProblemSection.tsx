@@ -8,23 +8,23 @@ const ProblemSection = () => {
   const problems = [
     {
       icon: Clock,
-      title: settings.problem_1_title || "Perda de Tempo = Perda de Dinheiro",
-      description: settings.problem_1_desc || "Sua equipe passa 20h/semana fazendo trabalho chato",
+      title: settings.problem_1_title || "Operações Lentas e Manuais",
+      description: settings.problem_1_desc || "Sua equipe gasta horas em tarefas repetitivas que poderiam ser automatizadas, desviando o foco de atividades estratégicas.",
     },
     {
       icon: UserX,
-      title: settings.problem_2_title || "Clientes Desistindo",
-      description: settings.problem_2_desc || "Demora no atendimento? Cliente vai embora",
+      title: settings.problem_2_title || "Perda de Oportunidades de Venda",
+      description: settings.problem_2_desc || "A demora no atendimento ou no follow-up de leads resulta em clientes insatisfeitos e vendas perdidas para a concorrência.",
     },
     {
       icon: TrendingDown,
-      title: settings.problem_3_title || "Vendas Escorrendo Pelos Dedos",
-      description: settings.problem_3_desc || "Sem follow-up automático, 70% dos interessados somem",
+      title: settings.problem_3_title || "Decisões Baseadas em Dados Desorganizados",
+      description: settings.problem_3_desc || "Informações fragmentadas e a falta de uma visão unificada dificultam a tomada de decisões estratégicas e o planejamento futuro.",
     },
     {
       icon: Unplug,
-      title: settings.problem_4_title || "Informação Bagunçada",
-      description: settings.problem_4_desc || "Dados espalhados = decisões erradas = dinheiro perdido",
+      title: settings.problem_4_title || "Sistemas Desconectados e Ineficientes",
+      description: settings.problem_4_desc || "A falta de integração entre suas ferramentas gera retrabalho, erros e impede a fluidez dos processos internos.",
     },
   ];
   return (
@@ -41,10 +41,10 @@ const ProblemSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.problem_title || "Esses Problemas Estão Sugando Seu Dinheiro"}
+            {settings.problem_title || "Desafios Comuns que Limitam o Crescimento da Sua Empresa"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {settings.problem_subtitle || "Veja quanto você perde todo mês"}
+            {settings.problem_subtitle || "Identifique os gargalos que impedem sua equipe de alcançar o máximo potencial."}
           </p>
         </motion.div>
 

@@ -34,8 +34,8 @@ export const CTAManager = () => {
       { key: 'final_cta_badge', value: settings.final_cta_badge, category: 'cta' },
       { key: 'final_cta_title', value: settings.final_cta_title, category: 'cta' },
       { key: 'final_cta_subtitle', value: settings.final_cta_subtitle, category: 'cta' },
-      { key: 'final_cta_button_1', value: settings.final_cta_button_1, category: 'cta' }, // Changed from final_cta_button_text
-      { key: 'final_cta_button_2', value: settings.final_cta_button_2, category: 'cta' }, // Added button 2
+      { key: 'final_cta_button_1', value: settings.final_cta_button_1, category: 'cta' },
+      { key: 'final_cta_button_2', value: settings.final_cta_button_2, category: 'cta' },
       { key: 'final_cta_guarantee_1', value: settings.final_cta_guarantee_1, category: 'cta' },
       { key: 'final_cta_guarantee_2', value: settings.final_cta_guarantee_2, category: 'cta' },
       { key: 'final_cta_guarantee_3', value: settings.final_cta_guarantee_3, category: 'cta' },

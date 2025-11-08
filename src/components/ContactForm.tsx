@@ -117,10 +117,10 @@ const ContactForm = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-              {getSetting('contact_form_title', 'Agende um contato com nossos especialistas')}
+              {getSetting('contact_form_title', 'Agende Sua Análise Gratuita com Nossos Especialistas')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {getSetting('contact_form_subtitle', 'Preencha o formulário e descubra como a Nexsimple pode transformar sua empresa')}
+              {getSetting('contact_form_subtitle', 'Preencha o formulário e descubra como a Nexsimple pode impulsionar a eficiência e o crescimento da sua empresa.')}
             </p>
           </div>
 
