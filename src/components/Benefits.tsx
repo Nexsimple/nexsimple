@@ -62,7 +62,7 @@ const Benefits = () => {
       color: "from-accent to-accent/80",
     },
     {
-Map: Clock,
+      icon: iconMap[settings.benefit_3_icon || 'Clock'], // Corrigido aqui
       metric: settings.benefit_3_metric || "Disponibilidade",
       suffix: settings.benefit_3_suffix || "Contínua",
       label: settings.benefit_3_label || "para Clientes",
