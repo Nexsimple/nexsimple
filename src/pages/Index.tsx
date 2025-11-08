@@ -3,10 +3,10 @@ import ProblemSection from "@/components/ProblemSection";
 import Solutions from "@/components/Solutions";
 import Benefits from "@/components/Benefits";
 import About from "@/components/About";
-import SocialProof from "@/components/SocialProof";
+// import SocialProof from "@/components/SocialProof"; // Removido
 import { Testimonials } from "@/components/Testimonials";
 import InteractiveDemo from "@/components/InteractiveDemo";
-import CaseStudies from "@/components/CaseStudies";
+// import CaseStudies from "@/components/CaseStudies"; // Removido
 import ROICalculator from "@/components/ROICalculator";
 import { TrustSection } from "@/components/TrustSection";
 import FAQ from "@/components/FAQ";
@@ -28,10 +28,10 @@ const Index = () => {
       <Solutions />
       <Benefits />
       <About />
-      <SocialProof />
-      <Testimonials />
+      {/* <SocialProof /> */}
+      <Testimonials /> {/* Este componente busca do Supabase, então se não houver dados, ele não aparecerá. */}
       <InteractiveDemo />
-      <CaseStudies />
+      {/* <CaseStudies /> */}
       <ROICalculator />
       <TrustSection />
       <FAQ />
