@@ -5,8 +5,10 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { TrendingUp, AlertCircle } from 'lucide-react';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 
 export const ROICalculator = () => {
+  const settings = useSiteSettings();
   const [employees, setEmployees] = useState<number>(10);
   const [hoursPerDay, setHoursPerDay] = useState<number>(2);
   const [avgSalary, setAvgSalary] = useState<number>(3000);
@@ -22,6 +24,9 @@ export const ROICalculator = () => {
   const monthlySavings = calculateLoss();
   const yearlySavings = monthlySavings * 12;
 
+  const roiCtaText = settings.roi_cta_text || "Quero uma Consultoria Gratuita!";
+  const roiCtaLink = settings.roi_cta_link || "https://wa.me/556492698259"; // Default to WhatsApp
+
   return (
     <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
       <div className="container mx-auto px-4">
@@ -33,10 +38,10 @@ export const ROICalculator = () => {
         >
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
-              Quanto Dinheiro Você Está Perdendo?
+              {settings.roi_calculator_title || "Quanto Dinheiro Você Está Perdendo?"}
             </h2>
             <p className="text-xl text-muted-foreground">
-              Calcule em 30 segundos o prejuízo do trabalho manual
+              {settings.roi_calculator_subtitle || "Calcule em 30 segundos o prejuízo do trabalho manual"}
             </p>
           </div>
 
@@ -120,8 +125,14 @@ export const ROICalculator = () => {
                     </div>
                   </div>
 
-                  <Button size="lg" className="w-full text-lg font-bold">
-                    Quero Recuperar Esse Dinheiro! 🔥
+                  <Button 
+                    size="lg" 
+                    className="w-full text-lg font-bold bg-cta-orange hover:bg-cta-orange/90"
+                    asChild
+                  >
+                    <a href={roiCtaLink} target="_blank" rel="noopener noreferrer">
+                      {roiCtaText}
+                    </a>
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground mt-4">

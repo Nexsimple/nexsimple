@@ -61,10 +61,10 @@ const FAQ = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-              {settings.faq_title || "Suas Perguntas, Nossas Respostas"}
+              {settings.faq_title || "Suas Perguntas, Nossas Respostas: Desbloqueie o Potencial da Automação"}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {settings.faq_subtitle || "Esclareça suas dúvidas sobre automação, IA e como a Nexsimple pode ajudar sua empresa."}
+              {settings.faq_subtitle || "Esclareça suas dúvidas e veja como a Nexsimple pode resolver seus desafios mais urgentes."}
             </p>
           </div>
 

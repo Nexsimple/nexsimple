@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { useSiteSettings } from '@/hooks/useSiteSettings'; // Import useSiteSettings
 
 const testimonials = [
   {
@@ -36,6 +37,8 @@ const stats = [
 ];
 
 const SocialProof = () => {
+  const settings = useSiteSettings(); // Use settings to potentially fetch dynamic content later
+
   return (
     <section className="py-24 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +109,7 @@ const SocialProof = () => {
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    <Star key={i} className="w-5 h-5 fill-success-green text-success-green" />
                   ))}
                 </div>
 

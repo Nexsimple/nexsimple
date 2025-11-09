@@ -16,7 +16,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24">
       {/* Gradient Background */}
       <div
         className="absolute inset-0 z-0"
@@ -75,7 +75,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            {getSetting('hero_title', 'Sua Empresa Pode Economizar 40 Horas Semanais em Processos Manuais')}
+            {getSetting('hero_title', 'Otimize Processos, Aumente Lucros Agora!')}
           </motion.h1>
 
           {/* Subheadline */}
@@ -85,7 +85,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            {getSetting('hero_subtitle', 'Descubra a tecnologia que grandes empresas usam para automatizar operações')}
+            {getSetting('hero_subtitle', 'Descubra como a automação e IA transformam sua empresa em 60 segundos.')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -98,7 +98,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-primary/50 w-full sm:w-auto group relative overflow-hidden"
+                className="bg-cta-orange text-white hover:bg-cta-orange/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-cta-orange/50 w-full sm:w-auto group relative overflow-hidden"
                 asChild
               >
                 <a
@@ -126,39 +126,23 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Stats Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
-          >
-            {[
-              { 
-                number: getSetting('hero_stat_1_number', 'Expertise'), 
-                label: getSetting('hero_stat_1_label', 'Em Automação e IA') 
-              },
-              { 
-                number: getSetting('hero_stat_2_number', 'Metodologia'), 
-                label: getSetting('hero_stat_2_label', 'Comprovada em Resultados') 
-              },
-              { 
-                number: getSetting('hero_stat_3_number', 'Suporte'), 
-                label: getSetting('hero_stat_3_label', 'Estratégico e Dedicado') 
-              },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all"
-              >
-                <div className="text-4xl font-bold text-white mb-2 animate-count-up">
-                  {stat.number}
-                </div>
-                <div className="text-white/80 text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {/* Video Explicativo */}
+          {getSetting('hero_video_id') && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="relative aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20"
+            >
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${getSetting('hero_video_id')}?autoplay=0&modestbranding=1&rel=0`}
+                title="Vídeo Explicativo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          )}
 
           {/* Scroll Indicator */}
           <motion.div

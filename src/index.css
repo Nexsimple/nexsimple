@@ -49,6 +49,12 @@ All colors MUST be HSL.
     --shadow-button: 0 8px 20px -4px hsl(162 65% 47% / 0.3);
     --shadow-glow: 0 0 40px hsl(162 65% 47% / 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* New Conversion Colors */
+    --cta-orange: 18 100% 60%; /* #FF6B35 */
+    --confidence-blue: 200 58% 42%; /* #2E86AB */
+    --urgency-red: 355 78% 58%; /* #E63946 */
+    --success-green: 162 90% 45%; /* #06D6A0 */
   }
 
   .dark {
@@ -79,6 +85,12 @@ All colors MUST be HSL.
     --border: 213 73% 22%;
     --input: 213 73% 22%;
     --ring: 162 65% 47%;
+
+    /* New Conversion Colors for Dark Mode (adjust as needed for visibility) */
+    --cta-orange: 18 100% 60%; /* #FF6B35 */
+    --confidence-blue: 200 58% 62%; /* Lighter for dark mode */
+    --urgency-red: 355 78% 68%; /* Lighter for dark mode */
+    --success-green: 162 90% 55%; /* Lighter for dark mode */
   }
 }
 

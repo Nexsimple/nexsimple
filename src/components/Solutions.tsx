@@ -1,8 +1,9 @@
 import { Brain, MessageSquare, Share2, BarChart3, Database, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSiteSettings } from '@/hooks/useSiteSettings';
+import { motion } from "framer-motion";
 
-const Services = () => {
+const Solutions = () => {
   const settings = useSiteSettings();
 
   const services = [
@@ -49,7 +50,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <Card 
               key={index}
@@ -70,9 +71,36 @@ const Services = () => {
             </Card>
           ))}
         </div>
+
+        {/* Visual Demonstration / Video */}
+        {settings.solutions_demo_image && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-border"
+          >
+            <img
+              src={settings.solutions_demo_image}
+              alt={settings.solutions_title || "Demonstração das Soluções"}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent flex items-end p-8">
+              <div className="text-white">
+                <h3 className="text-2xl font-bold mb-2">
+                  {settings.solutions_demo_title || "Veja Nossas Soluções em Ação"}
+                </h3>
+                <p className="text-white/90 mb-4">
+                  {settings.solutions_demo_description || "Descubra como a Nexsimple pode transformar seus desafios em resultados tangíveis."}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
 };
 
-export default Services;
+export default Solutions;

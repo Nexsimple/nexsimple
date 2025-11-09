@@ -8,23 +8,18 @@ const ProblemSection = () => {
   const problems = [
     {
       icon: Clock,
-      title: settings.problem_1_title || "Operações Lentas e Manuais",
-      description: settings.problem_1_desc || "Sua equipe gasta horas em tarefas repetitivas que poderiam ser automatizadas, desviando o foco de atividades estratégicas.",
+      title: settings.problem_1_title || "Perda de Tempo e Dinheiro com Tarefas Manuais",
+      description: settings.problem_1_desc || "Sua equipe gasta até 40 horas semanais em tarefas repetitivas, custando milhares de reais e atrasando o crescimento.",
     },
     {
       icon: UserX,
-      title: settings.problem_2_title || "Perda de Oportunidades de Venda",
-      description: settings.problem_2_desc || "A demora no atendimento ou no follow-up de leads resulta em clientes insatisfeitos e vendas perdidas para a concorrência.",
+      title: settings.problem_2_title || "Oportunidades de Venda Perdidas Diariamente",
+      description: settings.problem_2_desc || "A demora no atendimento e follow-up de leads resulta em 30% menos conversões e clientes insatisfeitos.",
     },
     {
       icon: TrendingDown,
-      title: settings.problem_3_title || "Decisões Baseadas em Dados Desorganizados",
-      description: settings.problem_3_desc || "Informações fragmentadas e a falta de uma visão unificada dificultam a tomada de decisões estratégicas e o planejamento futuro.",
-    },
-    {
-      icon: Unplug,
-      title: settings.problem_4_title || "Sistemas Desconectados e Ineficientes",
-      description: settings.problem_4_desc || "A falta de integração entre suas ferramentas gera retrabalho, erros e impede a fluidez dos processos internos.",
+      title: settings.problem_3_title || "Decisões Lentas e Custosas por Falta de Dados",
+      description: settings.problem_3_desc || "Informações desorganizadas impedem decisões rápidas, gerando prejuízos de até 15% no faturamento anual.",
     },
   ];
   return (
@@ -41,14 +36,14 @@ const ProblemSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.problem_title || "Desafios Comuns que Limitam o Crescimento da Sua Empresa"}
+            {settings.problem_title || "Desafios Comuns que Estão Custando Caro à Sua Empresa"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {settings.problem_subtitle || "Identifique os gargalos que impedem sua equipe de alcançar o máximo potencial."}
+            {settings.problem_subtitle || "Identifique os gargalos que impedem sua equipe de alcançar o máximo potencial e geram perdas financeiras."}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Alterado para 3 colunas */}
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -59,9 +54,9 @@ const ProblemSection = () => {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className="group"
             >
-              <div className="bg-card border-2 border-destructive/20 rounded-2xl p-6 h-full hover:border-destructive/40 hover:shadow-xl transition-all duration-300">
-                <div className="w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center mb-4 group-hover:bg-destructive/20 transition-colors">
-                  <problem.icon className="w-7 h-7 text-destructive" />
+              <div className="bg-card border-2 border-urgency-red/20 rounded-2xl p-6 h-full hover:border-urgency-red/40 hover:shadow-xl transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-urgency-red/10 flex items-center justify-center mb-4 group-hover:bg-urgency-red/20 transition-colors">
+                  <problem.icon className="w-7 h-7 text-urgency-red" />
                 </div>
                 <h3 className="text-xl font-semibold text-secondary mb-3">
                   {problem.title}

@@ -73,18 +73,18 @@ const FinalCTA = () => {
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
             <span className="text-white text-sm font-medium">
-              {settings.final_cta_badge || "Sua Próxima Grande Decisão"}
+              {settings.final_cta_badge || "Última Chance para Transformar!"}
             </span>
           </motion.div>
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            {settings.final_cta_title || "Pronto para Transformar Sua Empresa e Multiplicar Seus Resultados?"}
+            {settings.final_cta_title || "Vagas Limitadas: Garanta Sua Análise Gratuita Agora!"}
           </h2>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            {settings.final_cta_subtitle || "Junte-se a empresas que já estão colhendo os frutos da automação inteligente. Não deixe seu negócio para trás."}
+            {settings.final_cta_subtitle || "Não perca a oportunidade de otimizar seus processos e aumentar seus lucros. Aja rápido!"}
           </p>
 
           {/* CTA Buttons */}
@@ -92,7 +92,7 @@ const FinalCTA = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-white to-gray-200 text-secondary hover:from-white/90 hover:to-gray-100 font-semibold px-8 py-6 text-lg shadow-2xl shadow-white/50 w-full sm:w-auto group"
+                className="bg-cta-orange text-white hover:bg-cta-orange/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-cta-orange/50 w-full sm:w-auto group"
                 asChild
               >
                 <a
@@ -146,7 +146,7 @@ const FinalCTA = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-white/60 text-sm mt-8"
           >
-            {settings.final_cta_urgency || "Invista no futuro da sua empresa. As oportunidades não esperam."}
+            {settings.final_cta_urgency || "Esta oferta é por tempo limitado. Não perca a chance de impulsionar seu negócio!"}
           </motion.p>
         </motion.div>
       </div>
