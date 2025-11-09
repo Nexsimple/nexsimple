@@ -30,13 +30,11 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validação básica
     if (!formData.name || !formData.email || !formData.phone) {
       toast.error("Por favor, preencha todos os campos obrigatórios");
       return;
     }
 
-    // Validação de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast.error("Por favor, insira um e-mail válido");
@@ -46,7 +44,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Salvar no banco de dados
+      // Salvar no banco de dados (ação principal)
       const { error: dbError } = await supabase
         .from('leads')
         .insert([{
@@ -60,42 +58,10 @@ const ContactForm = () => {
 
       if (dbError) throw dbError;
 
-      // Rastrear conversão no Facebook Pixel
-      const facebookPixelId = getSetting('facebook_pixel_id', '');
-      if (facebookPixelId && typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead', {
-          content_name: 'Contact Form',
-          content_category: 'Lead Generation',
-          value: formData.company || formData.name,
-          currency: 'BRL'
-        });
-      }
-
-      // Rastrear conversão no Google Ads
-      const googleAdsConversionId = getSetting('google_ads_conversion_id', '');
-      const googleAdsConversionLabel = getSetting('google_ads_conversion_label', '');
-      if (googleAdsConversionId && googleAdsConversionLabel && typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'conversion', {
-          'send_to': `${googleAdsConversionId}/${googleAdsConversionLabel}`,
-          'value': 1.0,
-          'currency': 'BRL'
-        });
-      }
-
-      // Enviar para webhook (se configurado)
-      const webhookUrl = getSetting('webhook_url', '');
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-      }
-
+      // Exibir sucesso para o usuário imediatamente
       toast.success("✅ Obrigado! Um especialista da Nexsimple entrará em contato em breve.");
       
+      const submittedData = { ...formData }; // Salva os dados para usar nas ações secundárias
       setFormData({
         name: "",
         company: "",
@@ -103,9 +69,46 @@ const ContactForm = () => {
         phone: "",
         message: "",
       });
+
+      // Executar ações secundárias (rastreamento, webhooks) silenciosamente
+      try {
+        const facebookPixelId = getSetting('facebook_pixel_id', '');
+        if (facebookPixelId && typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_name: 'Contact Form',
+            content_category: 'Lead Generation',
+            value: submittedData.company || submittedData.name,
+            currency: 'BRL'
+          });
+        }
+
+        const googleAdsConversionId = getSetting('google_ads_conversion_id', '');
+        const googleAdsConversionLabel = getSetting('google_ads_conversion_label', '');
+        if (googleAdsConversionId && googleAdsConversionLabel && typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': `${googleAdsConversionId}/${googleAdsConversionLabel}`,
+            'value': 1.0,
+            'currency': 'BRL'
+          });
+        }
+
+        const webhookUrl = getSetting('webhook_url', '');
+        if (webhookUrl) {
+          fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(submittedData),
+          }).catch(webhookError => {
+            console.error("Erro ao enviar para o webhook:", webhookError);
+          });
+        }
+      } catch (trackingError) {
+        console.error("Erro nas ações de rastreamento pós-envio:", trackingError);
+      }
+
     } catch (error) {
       toast.error("❌ Algo deu errado. Tente novamente em instantes.");
-      console.error("Erro ao enviar formulário:", error);
+      console.error("Erro ao salvar lead no banco de dados:", error);
     } finally {
       setIsSubmitting(false);
     }
