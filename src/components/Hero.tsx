@@ -75,8 +75,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            {getSetting('hero_title', 'Desbloqueie o Potencial da Sua Empresa com Automação Inteligente e IA').split(' IA')[0]}{" "}
-            <span className="text-primary">Inteligência Artificial</span>
+            {getSetting('hero_title', 'Sua Empresa Pode Economizar 40 Horas Semanais em Processos Manuais')}
           </motion.h1>
 
           {/* Subheadline */}
@@ -86,7 +85,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            {getSetting('hero_subtitle', 'Transformamos processos complexos em fluxos eficientes, liberando sua equipe para o que realmente importa: crescimento e estratégia.')}
+            {getSetting('hero_subtitle', 'Descubra a tecnologia que grandes empresas usam para automatizar operações')}
           </motion.p>
 
           {/* CTA Buttons */}

@@ -29,10 +29,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { number: "500+", label: "Empresas Atendidas" },
-  { number: "1M+", label: "Automações Executadas" },
+  { number: "1000+", label: "Interações Simultâneas (IA)" },
+  { number: "+50", label: "Plataformas Integradas" },
+  { number: "< 2s", label: "Tempo de Resposta" },
   { number: "99.9%", label: "Uptime Garantido" },
-  { number: "4.9/5", label: "Satisfação dos Clientes" },
 ];
 
 const SocialProof = () => {
@@ -48,11 +48,11 @@ const SocialProof = () => {
           className="text-center mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            Números que Falam por Si
+            Tecnologia Testada e Aprovada
           </h2>
-          <p className="text-lg text-muted-foreground mb-12">
+          {/* <p className="text-lg text-muted-foreground mb-12">
             Resultados comprovados de quem confia na Nexsimple
-          </p>
+          </p> */} {/* Subtítulo removido conforme instrução */}
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {stats.map((stat, index) => (

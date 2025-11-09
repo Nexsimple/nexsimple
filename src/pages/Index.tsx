@@ -3,7 +3,7 @@ import ProblemSection from "@/components/ProblemSection";
 import Solutions from "@/components/Solutions";
 import Benefits from "@/components/Benefits";
 import About from "@/components/About";
-// import SocialProof from "@/components/SocialProof"; // Removido
+import SocialProof from "@/components/SocialProof"; // Reativado
 import { Testimonials } from "@/components/Testimonials";
 import InteractiveDemo from "@/components/InteractiveDemo";
 // import CaseStudies from "@/components/CaseStudies"; // Removido
@@ -28,7 +28,7 @@ const Index = () => {
       <Solutions />
       <Benefits />
       <About />
-      {/* <SocialProof /> */}
+      <SocialProof /> {/* Componente SocialProof reativado */}
       <Testimonials /> {/* Este componente busca do Supabase, então se não houver dados, ele não aparecerá. */}
       <InteractiveDemo />
       {/* <CaseStudies /> */}

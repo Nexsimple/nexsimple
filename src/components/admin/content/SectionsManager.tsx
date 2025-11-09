@@ -54,8 +54,8 @@ export const SectionsManager = () => {
       title: 'Hero',
       description: 'Seção principal do topo',
       fields: [
-        { key: 'hero_title', label: 'Título Principal', type: 'text' },
-        { key: 'hero_subtitle', label: 'Subtítulo', type: 'textarea' },
+        { key: 'hero_title', label: 'Título Principal', type: 'text', defaultValue: 'Sua Empresa Pode Economizar 40 Horas Semanais em Processos Manuais' },
+        { key: 'hero_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Descubra a tecnologia que grandes empresas usam para automatizar operações' },
         { key: 'hero_cta_primary', label: 'Texto do Botão Principal', type: 'text' },
         { key: 'hero_cta_secondary', label: 'Texto do Botão Secundário', type: 'text' },
         { key: 'hero_badge_text', label: 'Texto do Badge', type: 'text' },
@@ -221,14 +221,14 @@ export const SectionsManager = () => {
                 {field.type === 'textarea' ? (
                   <Textarea
                     id={field.key}
-                    value={settings[field.key] || ''}
+                    value={settings[field.key] || field.defaultValue || ''}
                     onChange={(e) => setSettings({ ...settings, [field.key]: e.target.value })}
                     rows={3}
                   />
                 ) : (
                   <Input
                     id={field.key}
-                    value={settings[field.key] || ''}
+                    value={settings[field.key] || field.defaultValue || ''}
                     onChange={(e) => setSettings({ ...settings, [field.key]: e.target.value })}
                   />
                 )}
@@ -237,7 +237,7 @@ export const SectionsManager = () => {
             <Button 
               onClick={() => {
                 section.fields.forEach(field => {
-                  updateSetting(field.key, settings[field.key]);
+                  updateSetting(field.key, settings[field.key] || field.defaultValue);
                 });
               }}
               disabled={loading}
