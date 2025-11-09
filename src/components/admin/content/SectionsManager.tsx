@@ -54,12 +54,18 @@ export const SectionsManager = () => {
       title: 'Hero',
       description: 'Seção principal do topo',
       fields: [
-        { key: 'hero_title', label: 'Título Principal (max 6 palavras)', type: 'text', defaultValue: 'Otimize Processos, Aumente Lucros Agora!' },
-        { key: 'hero_subtitle', label: 'Subtítulo (como funciona)', type: 'textarea', defaultValue: 'Descubra como a automação e IA transformam sua empresa em 60 segundos.' },
+        { key: 'hero_title', label: 'Título Principal (max 6 palavras)', type: 'text', defaultValue: 'Sua Empresa Pode Economizar 40 Horas Semanais' },
+        { key: 'hero_subtitle', label: 'Subtítulo (como funciona)', type: 'textarea', defaultValue: 'Descubra a tecnologia que grandes empresas usam para automatizar operações' },
         { key: 'hero_cta_primary', label: 'Texto do Botão Principal', type: 'text', defaultValue: 'Agendar Análise Gratuita 🔥' },
         { key: 'hero_cta_secondary', label: 'Texto do Botão Secundário', type: 'text', defaultValue: 'Conheça Nossas Soluções' },
         { key: 'hero_badge_text', label: 'Texto do Badge', type: 'text', defaultValue: 'Inovação Comprovada em Automação e IA' },
         { key: 'hero_video_id', label: 'ID do Vídeo Explicativo (YouTube)', type: 'text', defaultValue: '' },
+        { key: 'hero_stat_1_number', label: 'Estatística 1 (Número/Texto)', type: 'text', defaultValue: 'Expertise' },
+        { key: 'hero_stat_1_label', label: 'Estatística 1 (Rótulo)', type: 'text', defaultValue: 'Em Automação e IA' },
+        { key: 'hero_stat_2_number', label: 'Estatística 2 (Número/Texto)', type: 'text', defaultValue: 'Metodologia' },
+        { key: 'hero_stat_2_label', label: 'Estatística 2 (Rótulo)', type: 'text', defaultValue: 'Comprovada em Resultados' },
+        { key: 'hero_stat_3_number', label: 'Estatística 3 (Número/Texto)', type: 'text', defaultValue: 'Suporte' },
+        { key: 'hero_stat_3_label', label: 'Estatística 3 (Rótulo)', type: 'text', defaultValue: 'Estratégico e Dedicado' },
       ]
     },
     {
@@ -181,15 +187,15 @@ export const SectionsManager = () => {
       title: 'CTA Final',
       description: 'Chamada para ação no final da página (urgência real e benefício)',
       fields: [
-        { key: 'final_cta_badge', label: 'Texto do Badge', type: 'text', defaultValue: 'Última Chance para Transformar!' },
-        { key: 'final_cta_title', label: 'Título Principal', type: 'text', defaultValue: 'Vagas Limitadas: Garanta Sua Análise Gratuita Agora!' },
-        { key: 'final_cta_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Não perca a oportunidade de otimizar seus processos e aumentar seus lucros. Aja rápido!' },
+        { key: 'final_cta_badge', label: 'Texto do Badge', type: 'text', defaultValue: 'Sua Próxima Grande Decisão' },
+        { key: 'final_cta_title', label: 'Título Principal', type: 'text', defaultValue: 'Pronto para Transformar Sua Empresa e Multiplicar Seus Resultados?' },
+        { key: 'final_cta_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Junte-se a empresas que já estão colhendo os frutos da automação inteligente. Não deixe seu negócio para trás.' },
         { key: 'final_cta_button_1', label: 'Texto do Botão 1', type: 'text', defaultValue: 'Sim! Quero Minha Análise Gratuita!' },
         { key: 'final_cta_button_2', label: 'Texto do Botão 2', type: 'text', defaultValue: 'Falar com um Especialista Agora' },
         { key: 'final_cta_guarantee_1', label: 'Garantia 1', type: 'text' },
         { key: 'final_cta_guarantee_2', label: 'Garantia 2', type: 'text' },
         { key: 'final_cta_guarantee_3', label: 'Garantia 3', type: 'text' },
-        { key: 'final_cta_urgency', label: 'Mensagem de Urgência', type: 'text', defaultValue: 'Esta oferta é por tempo limitado. Não perca a chance de impulsionar seu negócio!' },
+        { key: 'final_cta_urgency', label: 'Mensagem de Urgência', type: 'text', defaultValue: 'Invista no futuro da sua empresa. As oportunidades não esperam.' },
       ]
     },
     {

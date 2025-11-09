@@ -75,7 +75,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            {getSetting('hero_title', 'Otimize Processos, Aumente Lucros Agora!')}
+            {getSetting('hero_title', 'Sua Empresa Pode Economizar 40 Horas Semanais')}
           </motion.h1>
 
           {/* Subheadline */}
@@ -85,7 +85,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            {getSetting('hero_subtitle', 'Descubra como a automação e IA transformam sua empresa em 60 segundos.')}
+            {getSetting('hero_subtitle', 'Descubra a tecnologia que grandes empresas usam para automatizar operações')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -124,6 +124,40 @@ const Hero = () => {
                 {getSetting('hero_cta_secondary', 'Conheça Nossas Soluções')}
               </Button>
             </motion.div>
+          </motion.div>
+
+          {/* Stats Preview */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto mb-16"
+          >
+            {[
+              { 
+                number: getSetting('hero_stat_1_number', 'Expertise'), 
+                label: getSetting('hero_stat_1_label', 'Em Automação e IA') 
+              },
+              { 
+                number: getSetting('hero_stat_2_number', 'Metodologia'), 
+                label: getSetting('hero_stat_2_label', 'Comprovada em Resultados') 
+              },
+              { 
+                number: getSetting('hero_stat_3_number', 'Suporte'), 
+                label: getSetting('hero_stat_3_label', 'Estratégico e Dedicado') 
+              },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all"
+              >
+                <div className="text-4xl font-bold text-white mb-2 animate-count-up">
+                  {stat.number}
+                </div>
+                <div className="text-white/80 text-sm">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Video Explicativo */}
