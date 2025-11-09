@@ -54,23 +54,16 @@ export const SectionsManager = () => {
       title: 'Hero',
       description: 'Seção principal do topo',
       fields: [
-        { key: 'hero_title', label: 'Título Principal (max 6 palavras)', type: 'text', defaultValue: 'Sua Empresa Pode Economizar 40 Horas Semanais' },
-        { key: 'hero_subtitle', label: 'Subtítulo (como funciona)', type: 'textarea', defaultValue: 'Descubra a tecnologia que grandes empresas usam para automatizar operações' },
+        { key: 'hero_title', label: 'Título Principal', type: 'text', defaultValue: 'Sua Empresa Pode Economizar 40 Horas Semanais' },
+        { key: 'hero_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Descubra a tecnologia que grandes empresas usam para automatizar operações e multiplicar resultados.' },
         { key: 'hero_cta_primary', label: 'Texto do Botão Principal', type: 'text', defaultValue: 'Agendar Análise Gratuita 🔥' },
-        { key: 'hero_cta_secondary', label: 'Texto do Botão Secundário', type: 'text', defaultValue: 'Conheça Nossas Soluções' },
         { key: 'hero_badge_text', label: 'Texto do Badge', type: 'text', defaultValue: 'Inovação Comprovada em Automação e IA' },
         { key: 'hero_video_id', label: 'ID do Vídeo Explicativo (YouTube)', type: 'text', defaultValue: '' },
-        { key: 'hero_stat_1_number', label: 'Estatística 1 (Número/Texto)', type: 'text', defaultValue: 'Expertise' },
-        { key: 'hero_stat_1_label', label: 'Estatística 1 (Rótulo)', type: 'text', defaultValue: 'Em Automação e IA' },
-        { key: 'hero_stat_2_number', label: 'Estatística 2 (Número/Texto)', type: 'text', defaultValue: 'Metodologia' },
-        { key: 'hero_stat_2_label', label: 'Estatística 2 (Rótulo)', type: 'text', defaultValue: 'Comprovada em Resultados' },
-        { key: 'hero_stat_3_number', label: 'Estatística 3 (Número/Texto)', type: 'text', defaultValue: 'Suporte' },
-        { key: 'hero_stat_3_label', label: 'Estatística 3 (Rótulo)', type: 'text', defaultValue: 'Estratégico e Dedicado' },
       ]
     },
     {
       title: 'Problemas',
-      description: 'Seção de problemas que você resolve (foco em perda financeira e urgência)',
+      description: 'Seção de problemas que você resolve',
       fields: [
         { key: 'problem_title', label: 'Título', type: 'text', defaultValue: 'Desafios Comuns que Estão Custando Caro à Sua Empresa' },
         { key: 'problem_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Identifique os gargalos que impedem sua equipe de alcançar o máximo potencial e geram perdas financeiras.' },
@@ -84,94 +77,47 @@ export const SectionsManager = () => {
     },
     {
       title: 'Soluções',
-      description: 'Como você resolve os problemas (benefícios tangíveis e demonstração)',
+      description: 'Como você resolve os problemas',
       fields: [
         { key: 'solutions_title', label: 'Título', type: 'text', defaultValue: 'Nossas Soluções: O Caminho para a Eficiência e o Crescimento' },
         { key: 'solutions_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Tecnologia de ponta e expertise para transformar seus desafios em resultados tangíveis.' },
-        { key: 'solution_1_title', label: 'Solução 1 Título', type: 'text' },
-        { key: 'solution_1_desc', label: 'Solução 1 Descrição', type: 'textarea' },
-        { key: 'solution_2_title', label: 'Solução 2 Título', type: 'text' },
-        { key: 'solution_2_desc', label: 'Solução 2 Descrição', type: 'textarea' },
-        { key: 'solution_3_title', label: 'Solução 3 Título', type: 'text' },
-        { key: 'solution_3_desc', label: 'Solução 3 Descrição', type: 'textarea' },
-        { key: 'solution_4_title', label: 'Solução 4 Título', type: 'text' },
-        { key: 'solution_4_desc', label: 'Solução 4 Descrição', type: 'textarea' },
-        { key: 'solution_5_title', label: 'Solução 5 Título', type: 'text' },
-        { key: 'solution_5_desc', label: 'Solução 5 Descrição', type: 'textarea' },
-        { key: 'solution_6_title', label: 'Solução 6 Título', type: 'text' },
-        { key: 'solution_6_desc', label: 'Solução 6 Descrição', type: 'textarea' },
-        { key: 'solutions_demo_image', label: 'URL da Imagem de Demonstração', type: 'text', defaultValue: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop' },
-        { key: 'solutions_demo_title', label: 'Título da Demonstração', type: 'text', defaultValue: 'Veja Nossas Soluções em Ação' },
-        { key: 'solutions_demo_description', label: 'Descrição da Demonstração', type: 'textarea', defaultValue: 'Descubra como a Nexsimple pode transformar seus desafios em resultados tangíveis.' },
+        { key: 'solution_1_title', label: 'Solução 1 Título', type: 'text', defaultValue: 'Automação Inteligente de Processos' },
+        { key: 'solution_1_desc', label: 'Solução 1 Descrição', type: 'textarea', defaultValue: 'Elimine tarefas manuais, reduza erros e libere sua equipe para focar em atividades estratégicas que geram valor real.' },
+        { key: 'solution_2_title', label: 'Solução 2 Título', type: 'text', defaultValue: 'Gestão de Leads 24/7' },
+        { key: 'solution_2_desc', label: 'Solução 2 Descrição', type: 'textarea', defaultValue: 'Capture, qualifique e responda a leads instantaneamente, aumentando sua taxa de conversão e garantindo que nenhuma oportunidade seja perdida.' },
+        { key: 'solution_3_title', label: 'Solução 3 Título', type: 'text', defaultValue: 'Dashboards com Dados em Tempo Real' },
+        { key: 'solution_3_desc', label: 'Solução 3 Descrição', type: 'textarea', defaultValue: 'Tenha acesso a informações cruciais do seu negócio em tempo real para tomar decisões mais rápidas, inteligentes e lucrativas.' },
+        { key: 'solution_4_title', label: 'Solução 4 Título', type: 'text', defaultValue: 'Assistentes de IA Personalizados' },
+        { key: 'solution_4_desc', label: 'Solução 4 Descrição', type: 'textarea', defaultValue: 'Crie assistentes virtuais treinados para o seu negócio, capazes de realizar atendimento, vendas e suporte de forma autônoma.' },
+        { key: 'solution_5_title', label: 'Solução 5 Título', type: 'text', defaultValue: 'Integração Total de Sistemas' },
+        { key: 'solution_5_desc', label: 'Solução 5 Descrição', type: 'textarea', defaultValue: 'Conecte todas as suas ferramentas (CRM, ERP, etc.) em um fluxo de trabalho unificado, eliminando silos de informação.' },
+        { key: 'solution_6_title', label: 'Solução 6 Título', type: 'text', defaultValue: 'Segurança e Confiabilidade' },
+        { key: 'solution_6_desc', label: 'Solução 6 Descrição', type: 'textarea', defaultValue: 'Nossa infraestrutura garante 99.9% de uptime e segurança de nível empresarial para proteger seus dados e operações.' },
       ]
     },
     {
-      title: 'Benefícios',
-      description: 'Principais benefícios',
+      title: 'Prova Social (Técnica)',
+      description: 'Prova social baseada em capacidade técnica',
       fields: [
-        { key: 'benefits_title', label: 'Título', type: 'text' },
-        { key: 'benefits_subtitle', label: 'Subtítulo', type: 'textarea' },
-        { key: 'benefit_1_icon', label: 'Benefício 1 Ícone (Nome Lucide-React)', type: 'text' },
-        { key: 'benefit_1_metric', label: 'Benefício 1 Métrica (Ex: 90)', type: 'text' },
-        { key: 'benefit_1_suffix', label: 'Benefício 1 Sufixo (Ex: %)', type: 'text' },
-        { key: 'benefit_1_label', label: 'Benefício 1 Rótulo', type: 'text' },
-        { key: 'benefit_1_desc', label: 'Benefício 1 Descrição', type: 'textarea' },
-        { key: 'benefit_2_icon', label: 'Benefício 2 Ícone (Nome Lucide-React)', type: 'text' },
-        { key: 'benefit_2_metric', label: 'Benefício 2 Métrica (Ex: 3)', type: 'text' },
-        { key: 'benefit_2_suffix', label: 'Benefício 2 Sufixo (Ex: x)', type: 'text' },
-        { key: 'benefit_2_label', label: 'Benefício 2 Rótulo', type: 'text' },
-        { key: 'benefit_2_desc', label: 'Benefício 2 Descrição', type: 'textarea' },
-        { key: 'benefit_3_icon', label: 'Benefício 3 Ícone (Nome Lucide-React)', type: 'text' },
-        { key: 'benefit_3_metric', label: 'Benefício 3 Métrica (Ex: 24)', type: 'text' },
-        { key: 'benefit_3_suffix', label: 'Benefício 3 Sufixo (Ex: /7)', type: 'text' },
-        { key: 'benefit_3_label', label: 'Benefício 3 Rótulo', type: 'text' },
-        { key: 'benefit_3_desc', label: 'Benefício 3 Descrição', type: 'textarea' },
-        { key: 'benefit_4_icon', label: 'Benefício 4 Ícone (Nome Lucide-React)', type: 'text' },
-        { key: 'benefit_4_metric', label: 'Benefício 4 Métrica (Ex: 20)', type: 'text' },
-        { key: 'benefit_4_suffix', label: 'Benefício 4 Sufixo (Ex: k)', type: 'text' },
-        { key: 'benefit_4_label', label: 'Benefício 4 Rótulo', type: 'text' },
-        { key: 'benefit_4_desc', label: 'Benefício 4 Descrição', type: 'textarea' },
+        { key: 'social_proof_title', label: 'Título', type: 'text', defaultValue: 'Tecnologia Testada e Aprovada' },
+        { key: 'social_proof_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Nossa infraestrutura é construída para performance, escalabilidade e confiança.' },
+        { key: 'tech_proof_1_metric', label: 'Métrica 1', type: 'text', defaultValue: '1000+' },
+        { key: 'tech_proof_1_label', label: 'Rótulo 1', type: 'text', defaultValue: 'Interações Simultâneas Processadas por IA' },
+        { key: 'tech_proof_2_metric', label: 'Métrica 2', type: 'text', defaultValue: '< 2s' },
+        { key: 'tech_proof_2_label', label: 'Rótulo 2', type: 'text', defaultValue: 'Tempo Médio de Resposta da Automação' },
+        { key: 'tech_proof_3_metric', label: 'Métrica 3', type: 'text', defaultValue: '99.9%' },
+        { key: 'tech_proof_3_label', label: 'Rótulo 3', type: 'text', defaultValue: 'Uptime Garantido em Contrato' },
+        { key: 'tech_proof_4_metric', label: 'Métrica 4', type: 'text', defaultValue: '+50' },
+        { key: 'tech_proof_4_label', label: 'Rótulo 4', type: 'text', defaultValue: 'Plataformas Nativas para Integração' },
       ]
     },
     {
-      title: 'Sobre',
-      description: 'Sobre a empresa',
-      fields: [
-        { key: 'about_title', label: 'Título', type: 'text' },
-        { key: 'about_text_1', label: 'Texto 1', type: 'textarea' },
-        { key: 'about_text_2', label: 'Texto 2', type: 'textarea' },
-        { key: 'about_stat_1_number', label: 'Estatística 1 (Número/Texto)', type: 'text' },
-        { key: 'about_stat_1_label', label: 'Estatística 1 (Rótulo)', type: 'text' },
-        { key: 'about_stat_2_number', label: 'Estatística 2 (Número/Texto)', type: 'text' },
-        { key: 'about_stat_2_label', label: 'Estatística 2 (Rótulo)', type: 'text' },
-        { key: 'about_stat_3_number', label: 'Estatística 3 (Número/Texto)', type: 'text' },
-        { key: 'about_stat_3_label', label: 'Estatística 3 (Rótulo)', type: 'text' },
-        { key: 'about_stat_4_number', label: 'Estatística 4 (Número/Texto)', type: 'text' },
-        { key: 'about_stat_4_label', label: 'Estatística 4 (Rótulo)', type: 'text' },
-      ]
-    },
-    {
-      title: 'Demo Interativa',
-      description: 'Seção de demonstração interativa',
-      fields: [
-        { key: 'demo_title', label: 'Título', type: 'text' },
-        { key: 'demo_subtitle', label: 'Subtítulo', type: 'textarea' },
-        { key: 'demo_feature_1_title', label: 'Recurso 1 Título', type: 'text' },
-        { key: 'demo_feature_1_desc', label: 'Recurso 1 Descrição', type: 'textarea' },
-        { key: 'demo_feature_2_title', label: 'Recurso 2 Título', type: 'text' },
-        { key: 'demo_feature_2_desc', label: 'Recurso 2 Descrição', type: 'textarea' },
-        { key: 'demo_feature_3_title', label: 'Recurso 3 Título', type: 'text' },
-        { key: 'demo_feature_3_desc', label: 'Recurso 3 Descrição', type: 'textarea' },
-        { key: 'demo_button_text', label: 'Texto do Botão da Demo', type: 'text' },
-      ]
-    },
-    {
-      title: 'Calculadora de ROI (CTA Secundário)',
-      description: 'Configurações para o CTA secundário na calculadora de ROI',
+      title: 'Calculadora de ROI',
+      description: 'Configurações para a calculadora de ROI',
       fields: [
         { key: 'roi_calculator_title', label: 'Título da Calculadora', type: 'text', defaultValue: 'Quanto Dinheiro Você Está Perdendo?' },
-        { key: 'roi_calculator_subtitle', label: 'Subtítulo da Calculadora', type: 'textarea', defaultValue: 'Calcule em 30 segundos o prejuízo do trabalho manual' },
-        { key: 'roi_cta_text', label: 'Texto do Botão CTA', type: 'text', defaultValue: 'Quero uma Consultoria Gratuita!' },
+        { key: 'roi_calculator_subtitle', label: 'Subtítulo da Calculadora', type: 'textarea', defaultValue: 'Calcule em 30 segundos o prejuízo do trabalho manual e o potencial de economia com a automação.' },
+        { key: 'roi_cta_text', label: 'Texto do Botão CTA', type: 'text', defaultValue: 'Quero Reverter Esse Prejuízo!' },
         { key: 'roi_cta_link', label: 'Link do Botão CTA', type: 'text', defaultValue: 'https://wa.me/556492698259' },
       ]
     },
@@ -179,41 +125,29 @@ export const SectionsManager = () => {
       title: 'FAQ',
       description: 'Seção de Perguntas Frequentes',
       fields: [
-        { key: 'faq_title', label: 'Título', type: 'text', defaultValue: 'Suas Perguntas, Nossas Respostas: Desbloqueie o Potencial da Automação' },
+        { key: 'faq_title', label: 'Título', type: 'text', defaultValue: 'Suas Perguntas, Nossas Respostas' },
         { key: 'faq_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Esclareça suas dúvidas e veja como a Nexsimple pode resolver seus desafios mais urgentes.' },
+        { key: 'faq_q1', label: 'Pergunta 1', type: 'text', defaultValue: 'Quanto tempo leva para ver os resultados?' },
+        { key: 'faq_a1', label: 'Resposta 1', type: 'textarea', defaultValue: 'Nossa metodologia ágil permite a implementação da primeira fase em poucas semanas. Você começará a ver o retorno sobre o investimento, como economia de tempo e redução de erros, em menos de 30 dias.' },
+        { key: 'faq_q2', label: 'Pergunta 2', type: 'text', defaultValue: 'Isso é muito caro para minha empresa?' },
+        { key: 'faq_a2', label: 'Resposta 2', type: 'textarea', defaultValue: 'O investimento na automação é significativamente menor do que o custo da ineficiência. Nossos planos são flexíveis e o foco é sempre no ROI. A economia gerada pela automação paga o investimento em poucos meses.' },
+        { key: 'faq_q3', label: 'Pergunta 3', type: 'text', defaultValue: 'Preciso de conhecimento técnico para usar a solução?' },
+        { key: 'faq_a3', label: 'Resposta 3', type: 'textarea', defaultValue: 'Absolutamente não. Nós cuidamos de toda a complexidade técnica, desde o planejamento e desenvolvimento até a implementação e o suporte. Sua equipe só precisa se preocupar em usar a nova eficiência para crescer.' },
+        { key: 'faq_q4', label: 'Pergunta 4', type: 'text', defaultValue: 'Meu processo é muito específico. A automação pode ser personalizada?' },
+        { key: 'faq_a4', label: 'Resposta 4', type: 'textarea', defaultValue: 'Sim. Nossa especialidade é criar soluções de automação e IA 100% personalizadas. Analisamos seus processos em detalhes para construir uma solução que se encaixa perfeitamente nas suas necessidades.' },
+        { key: 'faq_q5', label: 'Pergunta 5', type: 'text', defaultValue: 'A automação é segura para os dados da minha empresa?' },
+        { key: 'faq_a5', label: 'Resposta 5', type: 'textarea', defaultValue: 'A segurança é nossa prioridade máxima. Utilizamos as melhores práticas de segurança do mercado, criptografia de ponta a ponta e seguimos rigorosos protocolos para garantir que seus dados estejam sempre protegidos.' },
       ]
     },
     {
       title: 'CTA Final',
-      description: 'Chamada para ação no final da página (urgência real e benefício)',
+      description: 'Chamada para ação no final da página',
       fields: [
         { key: 'final_cta_badge', label: 'Texto do Badge', type: 'text', defaultValue: 'Sua Próxima Grande Decisão' },
-        { key: 'final_cta_title', label: 'Título Principal', type: 'text', defaultValue: 'Pronto para Transformar Sua Empresa e Multiplicar Seus Resultados?' },
-        { key: 'final_cta_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Junte-se a empresas que já estão colhendo os frutos da automação inteligente. Não deixe seu negócio para trás.' },
+        { key: 'final_cta_title', label: 'Título Principal', type: 'text', defaultValue: 'Pronto para Transformar Sua Empresa?' },
+        { key: 'final_cta_subtitle', label: 'Subtítulo', type: 'textarea', defaultValue: 'Não deixe a concorrência ditar o ritmo. A automação não é mais o futuro, é o presente. O momento de agir é agora.' },
         { key: 'final_cta_button_1', label: 'Texto do Botão 1', type: 'text', defaultValue: 'Sim! Quero Minha Análise Gratuita!' },
-        { key: 'final_cta_button_2', label: 'Texto do Botão 2', type: 'text', defaultValue: 'Falar com um Especialista Agora' },
-        { key: 'final_cta_guarantee_1', label: 'Garantia 1', type: 'text' },
-        { key: 'final_cta_guarantee_2', label: 'Garantia 2', type: 'text' },
-        { key: 'final_cta_guarantee_3', label: 'Garantia 3', type: 'text' },
-        { key: 'final_cta_urgency', label: 'Mensagem de Urgência', type: 'text', defaultValue: 'Invista no futuro da sua empresa. As oportunidades não esperam.' },
-      ]
-    },
-    {
-      title: 'Exit Popup',
-      description: 'Configurações do popup de saída',
-      fields: [
-        { key: 'exit_popup_enabled', label: 'Ativar Popup de Saída (true/false)', type: 'text' },
-        { key: 'exit_popup_title', label: 'Título do Popup', type: 'text' },
-        { key: 'exit_popup_offer', label: 'Oferta do Popup', type: 'text' },
-      ]
-    },
-    {
-      title: 'Formulário de Contato',
-      description: 'Configurações do formulário de contato',
-      fields: [
-        { key: 'contact_form_title', label: 'Título do Formulário', type: 'text' },
-        { key: 'contact_form_subtitle', label: 'Subtítulo do Formulário', type: 'textarea' },
-        { key: 'webhook_url', label: 'URL do Webhook para Leads', type: 'text' },
+        { key: 'final_cta_guarantee_1', label: 'Garantia 1', type: 'text', defaultValue: 'Análise de Risco Zero e 100% Confidencial' },
       ]
     },
   ];
@@ -233,14 +167,14 @@ export const SectionsManager = () => {
                 {field.type === 'textarea' ? (
                   <Textarea
                     id={field.key}
-                    value={settings[field.key] || field.defaultValue || ''}
+                    value={settings[field.key] ?? field.defaultValue ?? ''}
                     onChange={(e) => setSettings({ ...settings, [field.key]: e.target.value })}
                     rows={3}
                   />
                 ) : (
                   <Input
                     id={field.key}
-                    value={settings[field.key] || field.defaultValue || ''}
+                    value={settings[field.key] ?? field.defaultValue ?? ''}
                     onChange={(e) => setSettings({ ...settings, [field.key]: e.target.value })}
                   />
                 )}
@@ -249,7 +183,7 @@ export const SectionsManager = () => {
             <Button 
               onClick={() => {
                 section.fields.forEach(field => {
-                  updateSetting(field.key, settings[field.key] || field.defaultValue);
+                  updateSetting(field.key, settings[field.key] ?? field.defaultValue);
                 });
               }}
               disabled={loading}

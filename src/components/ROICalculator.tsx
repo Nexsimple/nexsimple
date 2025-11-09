@@ -1,148 +1,81 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, AlertCircle } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
+import { Button } from '@/components/ui/button';
+import { MessageCircle } from 'lucide-react';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 
-export const ROICalculator = () => {
-  const settings = useSiteSettings();
-  const [employees, setEmployees] = useState<number>(10);
-  const [hoursPerDay, setHoursPerDay] = useState<number>(2);
-  const [avgSalary, setAvgSalary] = useState<number>(3000);
+const ROICalculator = () => {
+  const { getSetting } = useSiteSettings();
+  const [employees, setEmployees] = useState(10);
+  const [hours, setHours] = useState(5);
+  const [cost, setCost] = useState(25);
+  const [monthlyLoss, setMonthlyLoss] = useState(0);
 
-  const calculateLoss = () => {
-    const hourlyRate = avgSalary / 160; // 160 horas úteis por mês
-    const hoursPerMonth = hoursPerDay * 22; // 22 dias úteis
-    const lossPerEmployee = hourlyRate * hoursPerMonth;
-    const totalLoss = lossPerEmployee * employees;
-    return Math.round(totalLoss);
-  };
-
-  const monthlySavings = calculateLoss();
-  const yearlySavings = monthlySavings * 12;
-
-  const roiCtaText = settings.roi_cta_text || "Quero uma Consultoria Gratuita!";
-  const roiCtaLink = settings.roi_cta_link || "https://wa.me/556492698259"; // Default to WhatsApp
+  useEffect(() => {
+    const loss = employees * hours * cost * 4; // 4 weeks in a month
+    setMonthlyLoss(loss);
+  }, [employees, hours, cost]);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              {settings.roi_calculator_title || "Quanto Dinheiro Você Está Perdendo?"}
+    <section className="py-24 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+              {getSetting('roi_calculator_title', 'Quanto Dinheiro Você Está Perdendo?')}
             </h2>
-            <p className="text-xl text-muted-foreground">
-              {settings.roi_calculator_subtitle || "Calcule em 30 segundos o prejuízo do trabalho manual"}
+            <p className="text-lg text-muted-foreground mb-8">
+              {getSetting('roi_calculator_subtitle', 'Calcule em 30 segundos o prejuízo do trabalho manual e o potencial de economia com a automação.')}
             </p>
-          </div>
-
-          <Card className="border-primary/30 shadow-2xl">
-            <CardHeader className="bg-primary/5">
-              <CardTitle className="flex items-center gap-2 text-2xl">
-                <TrendingUp className="w-6 h-6" />
-                Calculadora de ROI
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div>
-                    <Label htmlFor="employees" className="text-base mb-2 block">
-                      Quantos funcionários você tem?
-                    </Label>
-                    <Input
-                      id="employees"
-                      type="number"
-                      value={employees}
-                      onChange={(e) => setEmployees(Number(e.target.value))}
-                      min="1"
-                      className="text-lg"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="hours" className="text-base mb-2 block">
-                      Horas por dia em tarefas repetitivas?
-                    </Label>
-                    <Input
-                      id="hours"
-                      type="number"
-                      value={hoursPerDay}
-                      onChange={(e) => setHoursPerDay(Number(e.target.value))}
-                      min="1"
-                      max="8"
-                      step="0.5"
-                      className="text-lg"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="salary" className="text-base mb-2 block">
-                      Salário médio mensal (R$)
-                    </Label>
-                    <Input
-                      id="salary"
-                      type="number"
-                      value={avgSalary}
-                      onChange={(e) => setAvgSalary(Number(e.target.value))}
-                      min="1000"
-                      step="100"
-                      className="text-lg"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-center">
-                  <div className="bg-destructive/10 border-2 border-destructive rounded-lg p-6 mb-6">
-                    <div className="flex items-center gap-2 mb-4">
-                      <AlertCircle className="w-6 h-6 text-destructive" />
-                      <h3 className="text-lg font-semibold text-destructive">
-                        Você está perdendo:
-                      </h3>
-                    </div>
-                    
-                    <div className="text-center mb-4">
-                      <p className="text-5xl font-bold text-destructive mb-2">
-                        R$ {monthlySavings.toLocaleString('pt-BR')}
-                      </p>
-                      <p className="text-muted-foreground">por mês</p>
-                    </div>
-
-                    <div className="text-center border-t border-destructive/30 pt-4">
-                      <p className="text-2xl font-bold">
-                        R$ {yearlySavings.toLocaleString('pt-BR')}
-                      </p>
-                      <p className="text-sm text-muted-foreground">por ano</p>
-                    </div>
-                  </div>
-
-                  <Button 
-                    size="lg" 
-                    className="w-full text-lg font-bold bg-cta-orange hover:bg-cta-orange/90"
-                    asChild
-                  >
-                    <a href={roiCtaLink} target="_blank" rel="noopener noreferrer">
-                      {roiCtaText}
-                    </a>
-                  </Button>
-
-                  <p className="text-xs text-center text-muted-foreground mt-4">
-                    *Cálculo baseado em custos médios de trabalho manual
-                  </p>
-                </div>
+            <div className="space-y-8">
+              <div>
+                <label className="font-semibold text-secondary">Nº de Funcionários em Tarefas Repetitivas: <span className="text-primary font-bold">{employees}</span></label>
+                <Slider defaultValue={[10]} max={100} step={1} onValueChange={(value) => setEmployees(value[0])} />
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+              <div>
+                <label className="font-semibold text-secondary">Horas Gastas por Semana (por funcionário): <span className="text-primary font-bold">{hours}h</span></label>
+                <Slider defaultValue={[5]} max={40} step={1} onValueChange={(value) => setHours(value[0])} />
+              </div>
+              <div>
+                <label className="font-semibold text-secondary">Custo Médio da Hora de Trabalho: <span className="text-primary font-bold">R$ {cost}</span></label>
+                <Slider defaultValue={[25]} max={200} step={1} onValueChange={(value) => setCost(value[0])} />
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card p-8 lg:p-12 rounded-2xl shadow-2xl border-2 border-primary text-center"
+          >
+            <p className="text-lg text-muted-foreground mb-2">Prejuízo Mensal Estimado</p>
+            <h3 className="text-5xl lg:text-6xl font-bold text-destructive mb-4">
+              R$ {monthlyLoss.toLocaleString('pt-BR')}
+            </h3>
+            <p className="text-lg text-muted-foreground mb-8">
+              Esse é o valor que sua empresa pode estar perdendo todos os meses com ineficiência.
+            </p>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                className="bg-cta-orange text-white hover:bg-cta-orange/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-cta-orange/50 w-full group"
+                asChild
+              >
+                <a href={getSetting('roi_cta_link', 'https://wa.me/556492698259')} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  {getSetting('roi_cta_text', 'Quero Reverter Esse Prejuízo!')}
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

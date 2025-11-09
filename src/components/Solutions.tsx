@@ -1,103 +1,81 @@
-import { Brain, MessageSquare, Share2, BarChart3, Database, Zap } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useSiteSettings } from '@/hooks/useSiteSettings';
 import { motion } from "framer-motion";
+import { Zap, Target, BarChart, Bot, Users, Shield } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Solutions = () => {
-  const settings = useSiteSettings();
+  const { getSetting } = useSiteSettings();
 
-  const services = [
-    {
-      icon: Brain,
-      title: settings.solution_1_title || "Atendimento Inteligente 24/7",
-      description: settings.solution_1_desc || "Implementamos chatbots com IA que respondem a clientes e qualificam leads automaticamente, garantindo que nenhuma oportunidade seja perdida.",
-    },
-    {
-      icon: MessageSquare,
-      title: settings.solution_2_title || "Automação de Vendas e Marketing",
-      description: settings.solution_2_desc || "Crie fluxos automatizados para nutrir leads, gerenciar campanhas e otimizar a comunicação, impulsionando suas vendas.",
-    },
-    {
-      icon: Share2,
-      title: settings.solution_3_title || "Integração de Sistemas Essenciais",
-      description: settings.solution_3_desc || "Conectamos seu CRM, ERP e outras plataformas, eliminando silos de informação e garantindo a fluidez dos dados.",
-    },
-    {
-      icon: BarChart3,
-      title: settings.solution_4_title || "Dashboards de Performance em Tempo Real",
-      description: settings.solution_4_desc || "Tenha uma visão clara e instantânea dos seus indicadores de negócio, permitindo decisões rápidas e assertivas.",
-    },
-    {
-      icon: Database,
-      title: settings.solution_5_title || "Otimização de Processos Internos",
-      description: settings.solution_5_desc || "Automatizamos tarefas administrativas e operacionais, liberando sua equipe para focar em inovação e valor estratégico.",
-    },
+  const solutions = [
     {
       icon: Zap,
-      title: settings.solution_6_title || "Consultoria Estratégica em IA",
-      description: settings.solution_6_desc || "Nossos especialistas guiam sua empresa na adoção de IA, identificando as melhores aplicações para seus objetivos de negócio.",
+      title: getSetting('solution_1_title', 'Automação Inteligente de Processos'),
+      description: getSetting('solution_1_desc', 'Elimine tarefas manuais, reduza erros e libere sua equipe para focar em atividades estratégicas que geram valor real.'),
+    },
+    {
+      icon: Target,
+      title: getSetting('solution_2_title', 'Gestão de Leads 24/7'),
+      description: getSetting('solution_2_desc', 'Capture, qualifique e responda a leads instantaneamente, aumentando sua taxa de conversão e garantindo que nenhuma oportunidade seja perdida.'),
+    },
+    {
+      icon: BarChart,
+      title: getSetting('solution_3_title', 'Dashboards com Dados em Tempo Real'),
+      description: getSetting('solution_3_desc', 'Tenha acesso a informações cruciais do seu negócio em tempo real para tomar decisões mais rápidas, inteligentes e lucrativas.'),
+    },
+    {
+      icon: Bot,
+      title: getSetting('solution_4_title', 'Assistentes de IA Personalizados'),
+      description: getSetting('solution_4_desc', 'Crie assistentes virtuais treinados para o seu negócio, capazes de realizar atendimento, vendas e suporte de forma autônoma.'),
+    },
+    {
+      icon: Users,
+      title: getSetting('solution_5_title', 'Integração Total de Sistemas'),
+      description: getSetting('solution_5_desc', 'Conecte todas as suas ferramentas (CRM, ERP, etc.) em um fluxo de trabalho unificado, eliminando silos de informação.'),
+    },
+    {
+      icon: Shield,
+      title: getSetting('solution_6_title', 'Segurança e Confiabilidade'),
+      description: getSetting('solution_6_desc', 'Nossa infraestrutura garante 99.9% de uptime e segurança de nível empresarial para proteger seus dados e operações.'),
     },
   ];
-  return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {settings.solutions_title || "Nossas Soluções: O Caminho para a Eficiência e o Crescimento"}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {settings.solutions_subtitle || "Tecnologia de ponta e expertise para transformar seus desafios em resultados tangíveis."}
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <Card 
+  return (
+    <section id="solutions" className="py-24 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+            {getSetting('solutions_title', 'Nossas Soluções: O Caminho para a Eficiência e o Crescimento')}
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            {getSetting('solutions_subtitle', 'Tecnologia de ponta e expertise para transformar seus desafios em resultados tangíveis.')}
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {solutions.map((solution, index) => (
+            <motion.div
               key={index}
-              className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-card p-8 rounded-2xl shadow-lg border border-border/50"
             >
-              <CardHeader>
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-7 h-7 text-primary" />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <solution.icon className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+                <h3 className="text-xl font-bold text-secondary">{solution.title}</h3>
+              </div>
+              <p className="text-muted-foreground">{solution.description}</p>
+            </motion.div>
           ))}
         </div>
-
-        {/* Visual Demonstration / Video */}
-        {settings.solutions_demo_image && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-border"
-          >
-            <img
-              src={settings.solutions_demo_image}
-              alt={settings.solutions_title || "Demonstração das Soluções"}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent flex items-end p-8">
-              <div className="text-white">
-                <h3 className="text-2xl font-bold mb-2">
-                  {settings.solutions_demo_title || "Veja Nossas Soluções em Ação"}
-                </h3>
-                <p className="text-white/90 mb-4">
-                  {settings.solutions_demo_description || "Descubra como a Nexsimple pode transformar seus desafios em resultados tangíveis."}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
       </div>
     </section>
   );
