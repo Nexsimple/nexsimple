@@ -92,7 +92,7 @@ const FinalCTA = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-white text-secondary hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-2xl w-full sm:w-auto group"
+                className="bg-gradient-to-r from-white to-gray-200 text-secondary hover:from-white/90 hover:to-gray-100 font-semibold px-8 py-6 text-lg shadow-2xl shadow-white/50 w-full sm:w-auto group"
                 asChild
               >
                 <a

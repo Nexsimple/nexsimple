@@ -98,7 +98,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-white text-secondary hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-2xl w-full sm:w-auto group relative overflow-hidden"
+                className="bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-primary/50 w-full sm:w-auto group relative overflow-hidden"
                 asChild
               >
                 <a
