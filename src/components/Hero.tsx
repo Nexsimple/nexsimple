@@ -16,15 +16,12 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background:
-            "linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(17, 24, 39) 100%)",
-        }}
-      />
-      <div className="absolute inset-0 z-0 opacity-10 bg-[url('/grid.svg')]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 bg-background">
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-secondary to-background" />
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
@@ -32,10 +29,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-2 mb-8"
           >
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-white text-sm font-medium">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse-slow"></div>
+            <span className="text-foreground text-sm font-medium">
               {getSetting('hero_badge_text', 'IA Conversacional de Próxima Geração')}
             </span>
           </motion.div>
@@ -44,10 +41,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
           >
             {getSetting('hero_title', 'Transforme Vendas e Atendimento com')}{' '}
-            <span className="text-blue-500">
+            <span className="text-gradient">
               {getSetting('hero_title_highlight', 'IA Conversacional Empresarial')}
             </span>
           </motion.h1>
@@ -56,7 +53,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg sm:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
           >
             {getSetting('hero_subtitle', 'Agentes de voz e chat que qualificam leads, fecham vendas e automatizam operações enquanto você escala seu negócio.')}
           </motion.p>
@@ -70,7 +67,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8 py-6 text-lg shadow-2xl shadow-blue-600/50 w-full sm:w-auto group"
+                className="cta-button w-full sm:w-auto"
                 asChild
               >
                 <a
@@ -88,7 +85,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent text-white border-white/30 hover:bg-white/10 font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                className="border-primary/30 hover:bg-primary/10 font-semibold px-8 py-6 text-lg w-full sm:w-auto"
                 asChild
               >
                 <a href="#demo" className="flex items-center gap-2">
@@ -116,11 +113,11 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
-                className="text-center"
+                className="text-center bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50"
               >
-                <div className="text-3xl font-bold text-blue-400 mb-1">{stat.metric}</div>
-                <div className="text-white font-semibold text-sm">{stat.label}</div>
-                <div className="text-white/60 text-xs">{stat.sublabel}</div>
+                <div className="text-3xl font-bold text-primary mb-1">{stat.metric}</div>
+                <div className="text-foreground font-semibold text-sm">{stat.label}</div>
+                <div className="text-muted-foreground text-xs">{stat.sublabel}</div>
               </motion.div>
             ))}
           </motion.div>

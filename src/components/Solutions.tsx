@@ -39,7 +39,7 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 bg-gray-900">
+    <section id="solutions" className="section-corporate bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,14 +48,14 @@ const Solutions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-cyan-900/30 border border-cyan-500/30 rounded-full px-4 py-2 mb-6">
-            <span className="text-cyan-400 text-sm font-medium">✨ Nossa Solução Principal</span>
+          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-6 py-2 mb-6">
+            <span className="text-accent text-sm font-medium">✨ Nossa Solução Principal</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             IA Conversacional{' '}
-            <span className="text-blue-500">Personalizada para Seu Negócio</span>
+            <span className="text-gradient">Personalizada para Seu Negócio</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {getSetting('solutions_subtitle', 'Desenvolvemos agentes de IA treinados especificamente para o seu negócio, integrando-se perfeitamente aos seus processos existentes para maximizar resultados')}
           </p>
         </motion.div>
@@ -68,17 +68,17 @@ const Solutions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border card-hover"
             >
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 mx-auto">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 mx-auto shadow-lg shadow-primary/30">
                 <solution.icon className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 text-center">{solution.title}</h3>
-              <p className="text-gray-400 mb-6 text-center">{solution.description}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{solution.title}</h3>
+              <p className="text-muted-foreground mb-6 text-center">{solution.description}</p>
               <ul className="space-y-3">
                 {solution.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <li key={i} className="flex items-center gap-2 text-foreground">
+                    <Check className="w-5 h-5 text-corporate-success flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}

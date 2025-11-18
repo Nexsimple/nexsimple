@@ -21,7 +21,7 @@ const Index = () => {
   usePageTracking();
 
   return (
-    <main className="min-h-screen bg-gray-950">
+    <main className="min-h-screen bg-background">
       <SEOHead />
       <Hero />
       <ProblemSection />

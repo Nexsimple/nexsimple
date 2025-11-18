@@ -48,7 +48,7 @@ const BenefitsNew = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-900">
+    <section className="section-corporate bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,10 +57,10 @@ const BenefitsNew = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Benefícios que Transformam Seu Negócio
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Resultados reais e mensuráveis desde a primeira semana
           </p>
         </motion.div>
@@ -73,19 +73,19 @@ const BenefitsNew = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border card-hover"
             >
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 rounded-xl bg-blue-900/30 flex items-center justify-center">
-                  <benefit.icon className="w-8 h-8 text-blue-500" />
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <benefit.icon className="w-8 h-8 text-primary" />
                 </div>
                 <div className="text-right">
-                  <div className="text-4xl font-bold text-blue-400">{benefit.metric}</div>
-                  <div className="text-xs text-gray-500">{benefit.metricLabel}</div>
+                  <div className="text-4xl font-bold text-primary">{benefit.metric}</div>
+                  <div className="text-xs text-muted-foreground">{benefit.metricLabel}</div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+              <h3 className="text-xl font-bold text-foreground mb-3">{benefit.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>

@@ -52,7 +52,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'cta-orange': '#FF6B35',
+        corporate: {
+          blue: "hsl(var(--corporate-blue))",
+          "blue-dark": "hsl(var(--corporate-blue-dark))",
+          "blue-light": "hsl(var(--corporate-blue-light))",
+          cyan: "hsl(var(--corporate-cyan))",
+          success: "hsl(var(--corporate-success))",
+          warning: "hsl(var(--corporate-warning))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -70,23 +77,33 @@ const config = {
         },
         "glow": {
           '0%, 100%': { boxShadow: '0 0 5px hsl(var(--primary))' },
-          '50%': { boxShadow: '0 0 20px hsl(var(--primary))' },
+          '50%': { boxShadow: '0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary))' },
         },
-        "count-up": {
+        "pulse-slow": {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
+        "slide-up": {
           from: { opacity: '0', transform: 'translateY(20px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
-        "fade-in": {
-          from: { opacity: '0', transform: 'translateY(10px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
+        "slide-in": {
+          from: { opacity: '0', transform: 'translateX(-20px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        "scale-in": {
+          from: { opacity: '0', transform: 'scale(0.95)' },
+          to: { opacity: '1', transform: 'scale(1)' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "glow": "glow 3s ease-in-out infinite",
-        "count-up": "count-up 1s ease-out forwards",
-        "fade-in": "fade-in 0.6s ease-out forwards",
+        "pulse-slow": "pulse-slow 3s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "slide-in": "slide-in 0.6s ease-out",
+        "scale-in": "scale-in 0.6s ease-out",
       },
     },
   },
