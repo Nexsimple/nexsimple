@@ -21,7 +21,7 @@ const Hero = () => {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(135deg, hsl(213, 73%, 15%) 0%, hsl(162, 65%, 47%) 100%)",
+            "linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(17, 24, 39) 100%)",
         }}
       />
       <div className="absolute inset-0 z-0 opacity-10 bg-[url('/grid.svg')]" />
@@ -34,9 +34,9 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
           >
-            <div className="w-2 h-2 bg-primary rounded-full animate-glow"></div>
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
             <span className="text-white text-sm font-medium">
-              {getSetting('hero_badge_text', 'Inovação Comprovada em Automação e IA')}
+              {getSetting('hero_badge_text', 'IA Conversacional de Próxima Geração')}
             </span>
           </motion.div>
 
@@ -46,16 +46,19 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            {getSetting('hero_title', 'Sua Empresa Pode Economizar 40 Horas Semanais')}
+            {getSetting('hero_title', 'Transforme Vendas e Atendimento com')}{' '}
+            <span className="text-blue-500">
+              {getSetting('hero_title_highlight', 'IA Conversacional Empresarial')}
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            {getSetting('hero_subtitle', 'Descubra a tecnologia que grandes empresas usam para automatizar operações e multiplicar resultados.')}
+            {getSetting('hero_subtitle', 'Agentes de voz e chat que qualificam leads, fecham vendas e automatizam operações enquanto você escala seu negócio.')}
           </motion.p>
 
           <motion.div
@@ -67,7 +70,7 @@ const Hero = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-cta-orange text-white hover:bg-cta-orange/90 font-semibold px-8 py-6 text-lg shadow-2xl shadow-cta-orange/50 w-full sm:w-auto group relative overflow-hidden"
+                className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8 py-6 text-lg shadow-2xl shadow-blue-600/50 w-full sm:w-auto group"
                 asChild
               >
                 <a
@@ -76,11 +79,50 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  {getSetting('hero_cta_primary', 'Agendar Análise Gratuita 🔥')}
+                  {getSetting('hero_cta_primary', 'Agendar Demo Gratuita')}
+                  <span className="ml-2">→</span>
                 </a>
               </Button>
             </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent text-white border-white/30 hover:bg-white/10 font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                asChild
+              >
+                <a href="#demo" className="flex items-center gap-2">
+                  <span>▶</span>
+                  {getSetting('hero_cta_secondary', 'Ver Como Funciona')}
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16"
+          >
+            {[
+              { metric: '+45%', label: 'Conversão', sublabel: 'em média' },
+              { metric: '60%', label: 'Redução de Custo', sublabel: 'operacional' },
+              { metric: '24/7', label: 'Disponibilidade', sublabel: 'sem pausas' },
+              { metric: '2-4 semanas', label: 'Implementação', sublabel: 'em média' },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-3xl font-bold text-blue-400 mb-1">{stat.metric}</div>
+                <div className="text-white font-semibold text-sm">{stat.label}</div>
+                <div className="text-white/60 text-xs">{stat.sublabel}</div>
+              </motion.div>
+            ))}
           </motion.div>
 
           {getSetting('hero_video_id') && (

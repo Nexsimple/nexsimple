@@ -1,12 +1,12 @@
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import Solutions from "@/components/Solutions";
-import Benefits from "@/components/Benefits";
+import BenefitsNew from "@/components/BenefitsNew";
+import AllInOneSolutions from "@/components/AllInOneSolutions";
 import About from "@/components/About";
-import SocialProof from "@/components/SocialProof"; // Reativado
+import SocialProof from "@/components/SocialProof";
 import { Testimonials } from "@/components/Testimonials";
 import InteractiveDemo from "@/components/InteractiveDemo";
-// import CaseStudies from "@/components/CaseStudies"; // Removido
 import ROICalculator from "@/components/ROICalculator";
 import { TrustSection } from "@/components/TrustSection";
 import FAQ from "@/components/FAQ";
@@ -21,17 +21,17 @@ const Index = () => {
   usePageTracking();
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gray-950">
       <SEOHead />
       <Hero />
       <ProblemSection />
       <Solutions />
-      <Benefits />
+      <BenefitsNew />
+      <AllInOneSolutions />
       <About />
-      <SocialProof /> {/* Componente SocialProof reativado */}
-      <Testimonials /> {/* Este componente busca do Supabase, então se não houver dados, ele não aparecerá. */}
+      <SocialProof />
+      <Testimonials />
       <InteractiveDemo />
-      {/* <CaseStudies /> */}
       <ROICalculator />
       <TrustSection />
       <FAQ />
