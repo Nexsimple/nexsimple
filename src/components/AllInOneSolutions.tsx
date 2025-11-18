@@ -118,7 +118,7 @@ const AllInOneSolutions = () => {
   };
 
   return (
-    <section className="py-24 bg-gray-950">
+    <section className="section-corporate bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -127,10 +127,10 @@ const AllInOneSolutions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Tudo que Seu Negócio Precisa em Um Só Lugar
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Soluções completas de automação e IA
           </p>
         </motion.div>
@@ -149,8 +149,8 @@ const AllInOneSolutions = () => {
               variant={activeTab === tab.id ? "default" : "outline"}
               className={
                 activeTab === tab.id
-                  ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "bg-transparent text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
+                  ? "cta-button"
+                  : "border-border hover:bg-card"
               }
             >
               {tab.label}
@@ -168,17 +168,17 @@ const AllInOneSolutions = () => {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 ${
                 solution.featured
-                  ? "bg-gradient-to-br from-cyan-900/30 to-blue-900/30 border-cyan-500/50"
-                  : "bg-gray-900/50 border-gray-800 hover:border-blue-500/50"
+                  ? "bg-gradient-to-br from-accent/20 to-primary/20 border-accent/50 shadow-lg shadow-accent/20"
+                  : "bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 card-hover"
               }`}
             >
-              <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-                solution.featured ? "bg-cyan-500/20" : "bg-blue-900/30"
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                solution.featured ? "bg-accent/20" : "bg-primary/10"
               }`}>
-                <solution.icon className={`w-6 h-6 ${solution.featured ? "text-cyan-400" : "text-blue-500"}`} />
+                <solution.icon className={`w-6 h-6 ${solution.featured ? "text-accent" : "text-primary"}`} />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{solution.title}</h3>
-              <p className="text-sm text-gray-400">{solution.description}</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">{solution.title}</h3>
+              <p className="text-sm text-muted-foreground">{solution.description}</p>
             </motion.div>
           ))}
         </div>
