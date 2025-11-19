@@ -4,9 +4,6 @@ import Solutions from "@/components/Solutions";
 import BenefitsNew from "@/components/BenefitsNew";
 import AllInOneSolutions from "@/components/AllInOneSolutions";
 import About from "@/components/About";
-import SocialProof from "@/components/SocialProof";
-import { Testimonials } from "@/components/Testimonials";
-import InteractiveDemo from "@/components/InteractiveDemo";
 import ROICalculator from "@/components/ROICalculator";
 import { TrustSection } from "@/components/TrustSection";
 import FAQ from "@/components/FAQ";
@@ -29,9 +26,6 @@ const Index = () => {
       <BenefitsNew />
       <AllInOneSolutions />
       <About />
-      <SocialProof />
-      <Testimonials />
-      <InteractiveDemo />
       <ROICalculator />
       <TrustSection />
       <FAQ />
