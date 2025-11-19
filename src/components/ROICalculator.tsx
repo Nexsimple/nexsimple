@@ -27,7 +27,7 @@ const ROICalculator = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               {getSetting('roi_calculator_title', 'Quanto Dinheiro Você Está Perdendo?')}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -35,15 +35,15 @@ const ROICalculator = () => {
             </p>
             <div className="space-y-8">
               <div>
-                <label className="font-semibold text-secondary">Nº de Funcionários em Tarefas Repetitivas: <span className="text-primary font-bold">{employees}</span></label>
+                <label className="font-semibold text-foreground">Nº de Funcionários em Tarefas Repetitivas: <span className="text-primary font-bold">{employees}</span></label>
                 <Slider defaultValue={[10]} max={100} step={1} onValueChange={(value) => setEmployees(value[0])} />
               </div>
               <div>
-                <label className="font-semibold text-secondary">Horas Gastas por Semana (por funcionário): <span className="text-primary font-bold">{hours}h</span></label>
+                <label className="font-semibold text-foreground">Horas Gastas por Semana (por funcionário): <span className="text-primary font-bold">{hours}h</span></label>
                 <Slider defaultValue={[5]} max={40} step={1} onValueChange={(value) => setHours(value[0])} />
               </div>
               <div>
-                <label className="font-semibold text-secondary">Custo Médio da Hora de Trabalho: <span className="text-primary font-bold">R$ {cost}</span></label>
+                <label className="font-semibold text-foreground">Custo Médio da Hora de Trabalho: <span className="text-primary font-bold">R$ {cost}</span></label>
                 <Slider defaultValue={[25]} max={200} step={1} onValueChange={(value) => setCost(value[0])} />
               </div>
             </div>

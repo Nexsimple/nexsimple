@@ -33,7 +33,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               {settings.about_title || "Por Que a Nexsimple é a Escolha Certa para Sua Transformação Digital?"}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -56,7 +56,7 @@ const About = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary mb-1">{item.title}</h3>
+                    <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>

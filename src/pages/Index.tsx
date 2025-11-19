@@ -30,7 +30,6 @@ const Index = () => {
       <AllInOneSolutions />
       <HowItWorks />
       <About />
-      <TrustSection />
       <ROICalculator />
       <FAQ />
       <FinalCTA />

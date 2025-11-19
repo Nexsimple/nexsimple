@@ -47,7 +47,7 @@ export const Navbar = () => {
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-bold text-primary-dark font-heading"
+              className="text-2xl font-bold text-foreground font-heading hover:text-primary transition-colors"
             >
               {getSetting('company_name', 'Nexsimple')}
             </button>
