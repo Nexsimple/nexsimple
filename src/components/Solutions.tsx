@@ -8,32 +8,32 @@ const Solutions = () => {
   const solutions = [
     {
       icon: MessageSquare,
-      title: getSetting('solution_1_title', 'Agentes de Chat IA'),
-      description: getSetting('solution_1_desc', 'Desenvolvemos agentes de IA treinados especificamente para o seu negócio, integrando-se perfeitamente aos seus processos existentes'),
+      title: getSetting('solution_1_title', 'Chatbots Inteligentes'),
+      description: getSetting('solution_1_desc', 'Chatbots com IA que atendem seus clientes via WhatsApp, site e redes sociais. Qualificam leads, respondem dúvidas e automatizam atendimento 24/7.'),
       features: [
-        'Resposta instantânea 24/7',
-        'Qualificação automática de leads',
-        'Multi-canal integrado',
+        'Atendimento automático 24/7',
+        'Qualificação inteligente de leads',
+        'Integração multi-plataforma',
       ],
     },
     {
       icon: Mic,
-      title: getSetting('solution_2_title', 'Agentes de Voz IA'),
-      description: getSetting('solution_2_desc', 'Ligações automatizadas humanizadas que confirmam agendamentos, fazem follow-ups e realizam pesquisas de satisfação'),
+      title: getSetting('solution_2_title', 'IA de Voz'),
+      description: getSetting('solution_2_desc', 'Agentes de voz com IA que fazem ligações automatizadas para confirmação de agendamentos, follow-ups comerciais e pesquisas de satisfação.'),
       features: [
-        'Conversas naturais e humanas',
-        'Escala ilimitada de atendimento',
-        'Redução de custo em 80%',
+        'Voz natural e humanizada',
+        'Confirmação de agendamentos',
+        'Follow-ups automáticos',
       ],
     },
     {
       icon: Workflow,
-      title: getSetting('solution_3_title', 'Automação Híbrida'),
-      description: getSetting('solution_3_desc', 'Workflows inteligentes que combinam IA + humanos nos momentos certos, garantindo eficiência sem perder o toque pessoal'),
+      title: getSetting('solution_3_title', 'Criação de Sites'),
+      description: getSetting('solution_3_desc', 'Desenvolvemos sites profissionais, responsivos e otimizados para conversão. Integrados com suas automações e ferramentas de IA.'),
       features: [
-        'Melhor dos dois mundos',
-        'Transição suave IA-Humano',
-        'ROI maximizado',
+        'Design moderno e responsivo',
+        'Otimizado para SEO',
+        'Integração com automações',
       ],
     },
   ];
@@ -51,12 +51,12 @@ const Solutions = () => {
           <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-6 py-2 mb-6">
             <span className="text-accent text-sm font-semibold">✨ Nossa Solução Principal</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary-dark mb-4">
-            Soluções Completas em{' '}
-            <span className="text-gradient">IA e Automação</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+            Nossas{' '}
+            <span className="text-gradient">Soluções Principais</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            {getSetting('solutions_subtitle', 'Desenvolvemos agentes de IA treinados especificamente para o seu negócio')}
+            {getSetting('solutions_subtitle', 'Chatbots de IA, Criação de Sites e Soluções de Voz com Inteligência Artificial')}
           </p>
         </motion.div>
 

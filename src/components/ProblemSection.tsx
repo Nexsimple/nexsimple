@@ -38,7 +38,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             {getSetting('problem_title', 'Os Desafios que Sua Empresa Enfrenta')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

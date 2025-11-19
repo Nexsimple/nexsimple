@@ -15,11 +15,6 @@ const Hero = () => {
     return <div className="min-h-screen flex items-center justify-center gradient-hero" />;
   }
 
-  const stats = [
-    { value: "500+", label: "Empresas Atendidas" },
-    { value: "98%", label: "Satisfação do Cliente" },
-    { value: "24/7", label: "Suporte Dedicado" },
-  ];
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20 gradient-hero">
@@ -39,7 +34,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-2 mb-8"
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-primary-dark text-sm font-semibold">
+            <span className="text-primary text-sm font-semibold">
               {getSetting('hero_badge_text', '🚀 IA Conversacional Empresarial')}
             </span>
           </motion.div>
@@ -49,7 +44,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary-dark mb-6 leading-tight font-heading"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight font-heading"
           >
             {getSetting('hero_title', 'Transforme Vendas e Atendimento com')}{' '}
             <span className="text-gradient">
@@ -94,24 +89,6 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-8 md:gap-12"
-          >
-            {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
 
           {/* Video Section (if exists) */}
           {getSetting('hero_video_id') && (
