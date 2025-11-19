@@ -1,8 +1,10 @@
 import Hero from "@/components/Hero";
+import { Navbar } from "@/components/Navbar";
 import ProblemSection from "@/components/ProblemSection";
 import Solutions from "@/components/Solutions";
 import BenefitsNew from "@/components/BenefitsNew";
 import AllInOneSolutions from "@/components/AllInOneSolutions";
+import { HowItWorks } from "@/components/HowItWorks";
 import About from "@/components/About";
 import ROICalculator from "@/components/ROICalculator";
 import { TrustSection } from "@/components/TrustSection";
@@ -20,14 +22,16 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEOHead />
+      <Navbar />
       <Hero />
       <ProblemSection />
       <Solutions />
       <BenefitsNew />
       <AllInOneSolutions />
+      <HowItWorks />
       <About />
-      <ROICalculator />
       <TrustSection />
+      <ROICalculator />
       <FAQ />
       <FinalCTA />
       <ContactForm />
