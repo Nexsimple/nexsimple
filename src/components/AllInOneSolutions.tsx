@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MessageSquare, Globe, Phone, ShoppingCart, Layout, Headphones, Building, Calendar, TrendingUp, Heart, BarChart, Sparkles, Clock, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const AllInOneSolutions = () => {
   const [activeTab, setActiveTab] = useState("chatbots");
@@ -17,42 +16,42 @@ const AllInOneSolutions = () => {
       {
         icon: MessageSquare,
         title: "FAQ IA com Base de Conhecimento",
-        description: "Respostas inteligentes e precisas 24/7",
+        description: "Respostas inteligentes 24/7",
       },
       {
         icon: Clock,
         title: "Atendente de Site 24 Horas",
-        description: "Nunca perca um lead por falta de atendimento",
+        description: "Nunca perca um lead",
       },
       {
         icon: Users,
         title: "SDR e Qualificação de Leads",
-        description: "Qualificação automática de potenciais clientes",
+        description: "Qualificação automática",
       },
       {
         icon: Calendar,
         title: "Agendamentos Automatizados",
-        description: "Agenda inteligente integrada ao seu calendário",
+        description: "Agenda inteligente integrada",
       },
       {
         icon: TrendingUp,
         title: "Nutrição e Follow-up",
-        description: "Relacionamento automatizado com leads",
+        description: "Relacionamento automatizado",
       },
       {
         icon: Heart,
         title: "Pós-Venda e Fidelização",
-        description: "Mantenha clientes engajados automaticamente",
+        description: "Clientes sempre engajados",
       },
       {
         icon: BarChart,
         title: "Painel Administrativo",
-        description: "Gestão e insights em tempo real",
+        description: "Gestão em tempo real",
       },
       {
         icon: Sparkles,
         title: "Premium: Multiagentes",
-        description: "Áudio, imagem, documentos e integrações ilimitadas",
+        description: "Áudio, imagem, documentos",
         featured: true,
       },
     ],
@@ -60,66 +59,66 @@ const AllInOneSolutions = () => {
       {
         icon: ShoppingCart,
         title: "E-commerce Inteligente + IA",
-        description: "Loja online com assistente de vendas IA",
+        description: "Loja com assistente de vendas",
       },
       {
         icon: Layout,
-        title: "Landing Page de Conversão com SDR",
-        description: "Páginas otimizadas com chatbot integrado",
+        title: "Landing Page com SDR",
+        description: "Páginas otimizadas",
       },
       {
         icon: Headphones,
         title: "Sistema de Atendimento 360°",
-        description: "Plataforma completa de suporte ao cliente",
+        description: "Plataforma completa",
       },
       {
         icon: Building,
         title: "Portal Corporativo Inteligente",
-        description: "Intranet com IA para sua empresa",
+        description: "Intranet com IA",
       },
       {
         icon: Calendar,
         title: "Plataforma de Agendamentos",
-        description: "Sistema robusto de marcação e gestão",
+        description: "Sistema robusto de gestão",
       },
       {
         icon: ShoppingCart,
-        title: "Sistema de Pedidos + Chat de Vendas",
-        description: "Vendas integradas com IA conversacional",
+        title: "Sistema de Pedidos + Chat",
+        description: "Vendas com IA integrada",
       },
       {
         icon: BarChart,
-        title: "Painel de Leads e CRM Inteligente",
-        description: "Gestão completa com insights de IA",
+        title: "Painel de Leads e CRM",
+        description: "Gestão com insights IA",
       },
     ],
     voice: [
       {
         icon: Phone,
         title: "Receptivo Inteligente",
-        description: "Atendimento telefônico automatizado",
+        description: "Atendimento telefônico IA",
       },
       {
         icon: Phone,
         title: "Ativo para Vendas",
-        description: "Ligações automatizadas para prospecção",
+        description: "Prospecção automatizada",
       },
       {
         icon: Phone,
         title: "Follow-up Automatizado",
-        description: "Acompanhamento de leads por voz",
+        description: "Acompanhamento por voz",
       },
       {
         icon: Phone,
         title: "Pesquisas e NPS",
-        description: "Coleta automática de feedback",
+        description: "Feedback automático",
       },
     ],
   };
 
   return (
-    <section className="section-corporate bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-spacing bg-muted/30">
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -127,61 +126,65 @@ const AllInOneSolutions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Tudo que Seu Negócio Precisa em Um Só Lugar
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary-dark mb-4">
+            Tudo que Você Precisa em Uma Plataforma
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Soluções completas de automação e IA
+            Soluções integradas e completas para transformar seu negócio
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {tabs.map((tab) => (
-            <Button
+            <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              variant={activeTab === tab.id ? "default" : "outline"}
-              className={
+              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 activeTab === tab.id
-                  ? "cta-button"
-                  : "border-border hover:bg-card"
-              }
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'bg-card text-foreground hover:bg-card/80 border border-border'
+              }`}
             >
               {tab.label}
-            </Button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Solutions Grid */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {solutions[activeTab as keyof typeof solutions].map((solution, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 ${
-                solution.featured
-                  ? "bg-gradient-to-br from-accent/20 to-primary/20 border-accent/50 shadow-lg shadow-accent/20"
-                  : "bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 card-hover"
-              }`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className={`card-corporate text-center ${
+                solution.featured ? 'border-accent border-2' : ''
+              } hover:scale-105 transition-transform duration-300`}
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                solution.featured ? "bg-accent/20" : "bg-primary/10"
-              }`}>
-                <solution.icon className={`w-6 h-6 ${solution.featured ? "text-accent" : "text-primary"}`} />
+              <div className={`w-14 h-14 rounded-xl ${
+                solution.featured ? 'bg-accent/20' : 'bg-primary/10'
+              } flex items-center justify-center mb-4 mx-auto`}>
+                <solution.icon className={`w-7 h-7 ${
+                  solution.featured ? 'text-accent' : 'text-primary'
+                }`} />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{solution.title}</h3>
-              <p className="text-sm text-muted-foreground">{solution.description}</p>
+              <h3 className="font-bold text-foreground mb-2 text-sm leading-tight">
+                {solution.title}
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                {solution.description}
+              </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

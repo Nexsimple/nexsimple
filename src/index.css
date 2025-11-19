@@ -4,48 +4,57 @@
 
 @layer base {
   :root {
-    /* Corporate Blue Palette */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Professional Corporate Palette - Nexsimple */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
  
-    --popover: 217 33% 17%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
  
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 203 87% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 217 83% 20%;
+    --primary-light: 203 87% 70%;
  
     --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 0% 100%;
  
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
  
-    --accent: 189 94% 43%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
  
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 24%;
-    --input: 217 33% 24%;
-    --ring: 217 91% 60%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 203 87% 53%;
  
     --radius: 0.75rem;
     
-    /* Corporate Colors */
-    --corporate-blue: 217 91% 60%;
-    --corporate-blue-dark: 217 91% 45%;
-    --corporate-blue-light: 217 91% 75%;
-    --corporate-cyan: 189 94% 43%;
-    --corporate-success: 142 76% 36%;
-    --corporate-warning: 45 93% 47%;
+    /* Corporate Brand Colors */
+    --corporate-blue: 203 87% 53%;
+    --corporate-blue-dark: 217 83% 20%;
+    --corporate-tech: 217 91% 45%;
+    --corporate-gray-dark: 220 17% 17%;
+    --corporate-gray: 220 9% 46%;
+    --corporate-gray-light: 220 14% 96%;
+    --corporate-orange: 38 92% 50%;
+    --corporate-green: 142 76% 36%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(189, 94%, 43%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(222, 47%, 11%) 0%, hsl(217, 33%, 17%) 100%);
+    --gradient-corporate: linear-gradient(135deg, hsl(217, 83%, 20%) 0%, hsl(203, 87%, 53%) 100%);
+    --gradient-corporate-reverse: linear-gradient(135deg, hsl(203, 87%, 53%) 0%, hsl(217, 83%, 20%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220, 14%, 96%) 0%, hsl(0, 0%, 100%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220, 14%, 99%) 0%, hsl(0, 0%, 100%) 100%);
   }
 }
  
@@ -55,29 +64,74 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
     font-feature-settings: "cv11", "ss01";
     font-variation-settings: "opsz" auto;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1 {
+    @apply text-5xl lg:text-6xl;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    @apply text-4xl lg:text-5xl;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    @apply text-2xl lg:text-3xl;
+    line-height: 1.3;
+  }
+  
+  p {
+    line-height: 1.7;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+  }
+  
+  .card-corporate {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-primary/50;
+    @apply hover:shadow-xl hover:border-primary/30 hover:-translate-y-1;
   }
   
-  .cta-button {
-    @apply bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105;
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-primary-foreground font-semibold px-8 py-4 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105;
   }
   
-  .section-corporate {
-    @apply py-24 relative overflow-hidden;
+  .btn-secondary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all duration-300;
+  }
+  
+  .section-spacing {
+    @apply py-16 lg:py-24;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .gradient-corporate {
+    background: var(--gradient-corporate);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
   }
 }

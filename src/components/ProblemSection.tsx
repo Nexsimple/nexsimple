@@ -29,8 +29,8 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section id="problems" className="section-corporate bg-secondary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problems" className="section-spacing bg-muted/30">
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,8 +38,8 @@ const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            {getSetting('problem_title', 'Seu Negócio Está Perdendo Oportunidades')}
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary-dark mb-4">
+            {getSetting('problem_title', 'Os Desafios que Sua Empresa Enfrenta')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {getSetting('problem_subtitle', 'Enquanto você dorme, seus concorrentes com IA já estão fechando vendas')}
@@ -54,7 +54,7 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-destructive/30 hover:border-destructive/50 card-hover"
+              className="card-corporate card-hover border-l-4 border-l-destructive"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
@@ -62,7 +62,7 @@ const ProblemSection = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{problem.title}</h3>
-                  <p className="text-muted-foreground">{problem.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -76,7 +76,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <div className="inline-block w-1 h-16 bg-gradient-to-b from-primary to-transparent mb-6 animate-pulse-slow"></div>
+          <div className="inline-block w-1 h-16 bg-gradient-to-b from-primary to-transparent mb-6"></div>
           <p className="text-xl md:text-2xl text-foreground">
             E se você pudesse resolver tudo isso com{' '}
             <span className="text-gradient font-bold">IA Conversacional</span>?

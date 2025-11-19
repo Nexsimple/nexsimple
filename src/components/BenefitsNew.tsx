@@ -6,50 +6,53 @@ const BenefitsNew = () => {
     {
       icon: TrendingUp,
       metric: "+45%",
-      metricLabel: "conversão, média",
+      metricLabel: "conversão média",
       title: "Aumento de Conversão de 45%+",
-      description: "Leads respondidos instantaneamente 24/7 se tornam clientes pagantes mais rápido. Nenhuma oportunidade perdida por falta de resposta.",
+      description: "Leads respondidos instantaneamente 24/7 se tornam clientes pagantes mais rápido.",
     },
     {
       icon: DollarSign,
       metric: "-60%",
       metricLabel: "custo operacional",
       title: "Redução de Custo de 60%",
-      description: "Elimine custos com atendentes, infra-estrutura e treinamento. IA opera por fração do custo de equipe humana.",
+      description: "Elimine custos com atendentes, infraestrutura e treinamento contínuo.",
     },
     {
       icon: Zap,
       metric: "<5s",
-      metricLabel: "tempo de resposta",
+      metricLabel: "tempo resposta",
       title: "Velocidade de Resposta Instantânea",
-      description: "Tempo médio de resposta reduzido de horas para segundos. Cliente engajado = cliente que compra.",
+      description: "Tempo médio reduzido de horas para segundos. Cliente engajado compra mais.",
     },
     {
       icon: Infinity,
       metric: "∞",
       metricLabel: "capacidade",
       title: "Escalabilidade Infinita",
-      description: "Atenda 100, 1.000 ou 10.000 clientes simultaneamente sem aumentar custos ou perder qualidade.",
+      description: "Atenda 100, 1.000 ou 10.000 clientes simultaneamente sem aumentar custos.",
     },
     {
       icon: BarChart,
       metric: "100%",
       metricLabel: "visibilidade",
-      title: "Insights e Analytics em Tempo Real",
-      description: "Dashboards que mostram exatamente o que está funcionando, quais leads são quentes e onde otimizar.",
+      title: "Insights em Tempo Real",
+      description: "Dashboards que mostram o que funciona e onde otimizar continuamente.",
     },
     {
       icon: Shield,
       metric: "0",
       metricLabel: "erros humanos",
-      title: "Consistência e Qualidade Garantidas",
-      description: "Zero erros humanos, zero dias ruins. Cada interação segue seu script perfeito e aprende continuamente.",
+      title: "Consistência Garantida",
+      description: "Zero erros humanos, zero dias ruins. Cada interação segue seu script perfeito.",
     },
   ];
 
   return (
-    <section className="section-corporate bg-secondary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="benefits" className="section-spacing gradient-corporate relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[url('/grid.svg')]" />
+      
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,10 +60,10 @@ const BenefitsNew = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Benefícios que Transformam Seu Negócio
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
             Resultados reais e mensuráveis desde a primeira semana
           </p>
         </motion.div>
@@ -73,19 +76,19 @@ const BenefitsNew = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border card-hover"
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <benefit.icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                  <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-right">
-                  <div className="text-4xl font-bold text-primary">{benefit.metric}</div>
-                  <div className="text-xs text-muted-foreground">{benefit.metricLabel}</div>
+                  <div className="text-4xl font-bold text-white">{benefit.metric}</div>
+                  <div className="text-xs text-white/80">{benefit.metricLabel}</div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{benefit.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+              <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
+              <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
