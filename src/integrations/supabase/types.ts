@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      affiliates: {
+        Row: {
+          affiliate_code: string
+          commission_rate: number | null
+          created_at: string | null
+          email: string | null
+          id: string
+          name: string
+          notes: string | null
+          phone: string | null
+          status: string | null
+          updated_at: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          affiliate_code: string
+          commission_rate?: number | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          status?: string | null
+          updated_at?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          affiliate_code?: string
+          commission_rate?: number | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          status?: string | null
+          updated_at?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       analytics: {
         Row: {
           country: string | null
@@ -23,6 +71,12 @@ export type Database = {
           page_path: string
           referrer: string | null
           user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_id: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
           visitor_id: string | null
         }
         Insert: {
@@ -33,6 +87,12 @@ export type Database = {
           page_path: string
           referrer?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_id?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
           visitor_id?: string | null
         }
         Update: {
@@ -43,6 +103,12 @@ export type Database = {
           page_path?: string
           referrer?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_id?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
           visitor_id?: string | null
         }
         Relationships: []
@@ -183,6 +249,7 @@ export type Database = {
       }
       leads: {
         Row: {
+          affiliate_id: string | null
           company: string | null
           created_at: string
           email: string
@@ -194,8 +261,13 @@ export type Database = {
           source: string | null
           status: string | null
           updated_at: string
+          utm_campaign: string | null
+          utm_id: string | null
+          utm_medium: string | null
+          utm_source: string | null
         }
         Insert: {
+          affiliate_id?: string | null
           company?: string | null
           created_at?: string
           email: string
@@ -207,8 +279,13 @@ export type Database = {
           source?: string | null
           status?: string | null
           updated_at?: string
+          utm_campaign?: string | null
+          utm_id?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Update: {
+          affiliate_id?: string | null
           company?: string | null
           created_at?: string
           email?: string
@@ -220,6 +297,57 @@ export type Database = {
           source?: string | null
           status?: string | null
           updated_at?: string
+          utm_campaign?: string | null
+          utm_id?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "leads_affiliate_id_fkey"
+            columns: ["affiliate_id"]
+            isOneToOne: false
+            referencedRelation: "affiliates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mind_maps: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          edges: Json
+          id: string
+          is_public: boolean | null
+          nodes: Json
+          thumbnail_url: string | null
+          title: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          edges?: Json
+          id?: string
+          is_public?: boolean | null
+          nodes?: Json
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          edges?: Json
+          id?: string
+          is_public?: boolean | null
+          nodes?: Json
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }

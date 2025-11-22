@@ -8,7 +8,9 @@ import {
   LogOut,
   Video,
   BarChart3,
-  FileText
+  FileText,
+  Link2,
+  Brain
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -32,6 +34,8 @@ export default function AdminLayout() {
     { to: '/admin/leads', icon: Users, label: 'Leads' },
     { to: '/admin/appointments', icon: Calendar, label: 'Agendamentos' },
     { to: '/admin/analytics', icon: BarChart3, label: 'Analytics' },
+    { to: '/admin/affiliates', icon: Link2, label: 'Afiliados' },
+    { to: '/admin/mind-maps', icon: Brain, label: 'Mapas Mentais' },
     { to: '/admin/videos', icon: Video, label: 'Vídeos' },
     { to: '/admin/content', icon: FileText, label: 'Conteúdo' },
     { to: '/admin/settings', icon: Settings, label: 'Configurações' },

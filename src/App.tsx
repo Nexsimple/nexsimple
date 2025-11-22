@@ -14,6 +14,11 @@ import AdminAnalytics from "./pages/admin/Analytics";
 import AdminVideos from "./pages/admin/Videos";
 import AdminContent from "./pages/admin/Content";
 import AdminSettings from "./pages/admin/Settings";
+import Affiliates from "./pages/admin/Affiliates";
+import LinkGenerator from "./pages/admin/LinkGenerator";
+import AffiliateAnalytics from "./pages/admin/AffiliateAnalytics";
+import MindMaps from "./pages/admin/MindMaps";
+import MindMapEditor from "./pages/admin/MindMapEditor";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +39,12 @@ const App = () => (
             <Route path="videos" element={<AdminVideos />} />
             <Route path="content" element={<AdminContent />} />
             <Route path="settings" element={<AdminSettings />} />
+            <Route path="affiliates" element={<Affiliates />} />
+            <Route path="affiliates/link-generator" element={<LinkGenerator />} />
+            <Route path="affiliates/analytics" element={<AffiliateAnalytics />} />
+            <Route path="mind-maps" element={<MindMaps />} />
           </Route>
+          <Route path="/admin/mind-maps/:id/editor" element={<MindMapEditor />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
