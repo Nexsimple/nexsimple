@@ -34,16 +34,16 @@ const FinalCTA = () => {
           >
             <div className="w-2 h-2 bg-cta-orange rounded-full animate-ping"></div>
             <span className="text-white text-sm font-medium">
-              {getSetting('final_cta_badge', 'Sua Próxima Grande Decisão')}
+              {getSetting('final_cta_badge', 'Agende uma Conversa')}
             </span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            {getSetting('final_cta_title', 'Pronto para Transformar Sua Empresa?')}
+            {getSetting('final_cta_title', 'Pronto para Automatizar Seu Negócio?')}
           </h2>
 
           <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            {getSetting('final_cta_subtitle', 'Não deixe a concorrência ditar o ritmo. A automação não é mais o futuro, é o presente. O momento de agir é agora.')}
+            {getSetting('final_cta_subtitle', 'Converse com nossos especialistas e descubra como IA pode transformar sua operação.')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -60,7 +60,7 @@ const FinalCTA = () => {
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
-                  {getSetting('final_cta_button_1', 'Sim! Quero Minha Análise Gratuita!')}
+                  {getSetting('final_cta_button_1', 'Falar com Especialista')}
                 </a>
               </Button>
             </motion.div>
@@ -74,7 +74,7 @@ const FinalCTA = () => {
             className="flex items-center justify-center gap-2 text-white/80"
           >
             <ShieldCheck className="w-5 h-5 text-primary" />
-            <span className="font-medium">{getSetting('final_cta_guarantee_1', 'Análise de Risco Zero e 100% Confidencial')}</span>
+            <span className="font-medium">{getSetting('final_cta_guarantee_1', 'Conversa 100% Confidencial')}</span>
           </motion.div>
         </motion.div>
       </div>
