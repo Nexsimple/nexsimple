@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 
@@ -146,19 +147,35 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
-              {getSetting('contact_form_title', 'Agende Sua Análise Gratuita com Nossos Especialistas')}
+    <section id="contact" className="section-premium bg-gradient-to-b from-card to-background relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[140px]" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-[140px]" />
+      
+      <div className="container-premium relative z-10">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-primary text-sm font-bold tracking-wide">Fale Conosco</span>
+            </motion.div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+              {getSetting('contact_form_title', 'Transforme Seu Negócio')}
+              <span className="text-gradient block mt-2">Hoje Mesmo</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               {getSetting('contact_form_subtitle', 'Preencha o formulário e descubra como a Nexsimple pode impulsionar a eficiência e o crescimento da sua empresa.')}
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-2xl shadow-xl border-2 border-border">
+          <form onSubmit={handleSubmit} className="card-premium space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-base font-semibold">
                 Nome <span className="text-destructive">*</span>
@@ -240,21 +257,25 @@ const ContactForm = () => {
             <Button 
               type="submit" 
               size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold text-lg h-14"
+              className="w-full btn-premium text-lg h-16 shine-effect group"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  <Loader2 className="mr-3 h-5 w-5 animate-spin" />
                   Enviando...
                 </>
               ) : (
                 <>
-                  <Send className="mr-2 h-5 w-5" />
+                  <Send className="mr-3 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   Enviar Mensagem
                 </>
               )}
             </Button>
+
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              🔒 Seus dados estão protegidos. Responderemos em até 24h.
+            </p>
           </form>
         </div>
       </div>
