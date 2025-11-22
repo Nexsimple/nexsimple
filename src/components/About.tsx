@@ -7,23 +7,23 @@ const About = () => {
   const differentials = [
     {
       icon: CheckCircle2,
-      title: settings.about_stat_1_number || "Metodologia",
-      description: settings.about_stat_1_label || "Orientada a Resultados",
+      title: "Chatbots Inteligentes",
+      description: "Atendimento automatizado 24/7 com IA",
     },
     {
       icon: Rocket,
-      title: settings.about_stat_2_number || "Equipe",
-      description: settings.about_stat_2_label || "Altamente Especializada",
+      title: "Criação de Sites",
+      description: "Sites profissionais e personalizados",
     },
     {
       icon: Shield,
-      title: settings.about_stat_3_number || "Soluções",
-      description: settings.about_stat_3_label || "Personalizadas",
+      title: "IA de Voz",
+      description: "Agentes de voz automatizados",
     },
     {
       icon: Sparkles,
-      title: settings.about_stat_4_number || "Parceria",
-      description: settings.about_stat_4_label || "e Suporte Contínuo",
+      title: "Integrações",
+      description: "Automação com n8n e APIs",
     },
   ];
 
@@ -34,13 +34,13 @@ const About = () => {
           {/* Text Content */}
           <div className="animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-              {settings.about_title || "Por Que a Nexsimple é a Escolha Certa para Sua Transformação Digital?"}
+              {settings.about_title || "Sobre a Nexsimple"}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              {settings.about_text_1 || "Na Nexsimple, entendemos que a automação e a inteligência artificial não são apenas ferramentas, mas catalisadores para o crescimento sustentável. Nosso foco é eliminar ineficiências e criar valor real para o seu negócio."}
+              {settings.about_text_1 || "Desenvolvemos chatbots inteligentes, agentes de voz com IA e sites personalizados para automatizar e otimizar processos empresariais."}
             </p>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              {settings.about_text_2 || "Com uma equipe de especialistas apaixonados por inovação, desenvolvemos soluções personalizadas que se integram perfeitamente à sua operação, garantindo resultados mensuráveis e um futuro mais eficiente."}
+              {settings.about_text_2 || "Nossa expertise em inteligência artificial e automação permite que sua empresa escale operações, reduza custos e melhore a experiência do cliente."}
             </p>
 
             {/* Differentials Grid */}
