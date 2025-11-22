@@ -44,7 +44,33 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Salvar no banco de dados (ação principal)
+      // Capturar UTM params do localStorage
+      const getUTMParams = () => {
+        try {
+          const stored = localStorage.getItem('utm_params');
+          return stored ? JSON.parse(stored) : {};
+        } catch {
+          return {};
+        }
+      };
+
+      const utmParams = getUTMParams();
+      
+      // Buscar affiliate_id se utm_id estiver presente
+      let affiliateId = null;
+      if (utmParams.utm_id) {
+        const { data: affiliate } = await supabase
+          .from('affiliates')
+          .select('id')
+          .eq('affiliate_code', utmParams.utm_id)
+          .single();
+        
+        if (affiliate) {
+          affiliateId = affiliate.id;
+        }
+      }
+
+      // Salvar no banco de dados com UTM params
       const { error: dbError } = await supabase
         .from('leads')
         .insert([{
@@ -53,7 +79,12 @@ const ContactForm = () => {
           phone: formData.phone,
           company: formData.company,
           message: formData.message,
-          source: 'website'
+          source: 'website',
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_id: utmParams.utm_id,
+          affiliate_id: affiliateId,
         }]);
 
       if (dbError) throw dbError;
