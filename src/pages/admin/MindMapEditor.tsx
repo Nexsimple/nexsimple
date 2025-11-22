@@ -4,7 +4,14 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { ArrowLeft, Save, Download } from "lucide-react";
+import { 
+  ArrowLeft, 
+  Save, 
+  Square, 
+  Circle, 
+  Diamond, 
+  Trash2,
+} from "lucide-react";
 import ReactFlow, {
   Node,
   Edge,
@@ -18,6 +25,11 @@ import ReactFlow, {
   MiniMap,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import CustomNode from "@/components/admin/CustomNode";
+
+const nodeTypes = {
+  custom: CustomNode,
+};
 
 const MindMapEditor = () => {
   const { id } = useParams();
@@ -92,31 +104,81 @@ const MindMapEditor = () => {
     }
   };
 
-  const addNode = () => {
+  const handleLabelChange = (nodeId: string, newLabel: string) => {
+    setNodes((nds) =>
+      nds.map((node) =>
+        node.id === nodeId
+          ? { ...node, data: { ...node.data, label: newLabel } }
+          : node
+      )
+    );
+  };
+
+  const handleColorChange = (nodeId: string, newColor: string) => {
+    setNodes((nds) =>
+      nds.map((node) =>
+        node.id === nodeId
+          ? { ...node, data: { ...node.data, color: newColor } }
+          : node
+      )
+    );
+  };
+
+  const handleDeleteNode = (nodeId: string) => {
+    setNodes((nds) => nds.filter((node) => node.id !== nodeId));
+    setEdges((eds) => eds.filter((edge) => edge.source !== nodeId && edge.target !== nodeId));
+  };
+
+  const addNode = (shape: 'default' | 'circle' | 'diamond' = 'default') => {
     const newNode: Node = {
       id: `node-${Date.now()}`,
-      type: "default",
-      position: { x: Math.random() * 400, y: Math.random() * 400 },
-      data: { label: "Novo Nó" },
-      style: {
-        background: "#3b82f6",
-        color: "#fff",
-        border: "2px solid #1e40af",
-        borderRadius: "8px",
-        padding: "10px",
+      type: "custom",
+      position: { 
+        x: 250 + Math.random() * 200, 
+        y: 100 + Math.random() * 200 
+      },
+      data: { 
+        label: "Novo Nó",
+        color: "#3b82f6",
+        shape,
+        onLabelChange: handleLabelChange,
+        onColorChange: handleColorChange,
+        onDelete: handleDeleteNode,
       },
     };
     setNodes((nds) => [...nds, newNode]);
   };
+
+  const clearAll = () => {
+    if (confirm("Tem certeza que deseja limpar todo o mapa?")) {
+      setNodes([]);
+      setEdges([]);
+    }
+  };
+
+  // Atualizar callbacks nos nós existentes quando carregar
+  useEffect(() => {
+    setNodes((nds) =>
+      nds.map((node) => ({
+        ...node,
+        data: {
+          ...node.data,
+          onLabelChange: handleLabelChange,
+          onColorChange: handleColorChange,
+          onDelete: handleDeleteNode,
+        },
+      }))
+    );
+  }, []);
 
   if (authLoading) {
     return <div className="p-8 text-center">Carregando...</div>;
   }
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col bg-background">
       {/* Header */}
-      <div className="bg-background border-b p-4 flex justify-between items-center">
+      <div className="bg-card border-b p-3 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-4">
           <Button
             variant="outline"
@@ -126,17 +188,15 @@ const MindMapEditor = () => {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Voltar
           </Button>
-          <h1 className="text-xl font-bold">{mapTitle}</h1>
+          <h1 className="text-xl font-bold text-foreground">{mapTitle}</h1>
         </div>
 
         <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={addNode}>
-            Adicionar Nó
-          </Button>
           <Button
             size="sm"
             onClick={handleSave}
             disabled={isSaving}
+            className="bg-primary hover:bg-primary/90"
           >
             <Save className="mr-2 h-4 w-4" />
             {isSaving ? "Salvando..." : "Salvar"}
@@ -144,20 +204,88 @@ const MindMapEditor = () => {
         </div>
       </div>
 
+      {/* Toolbar */}
+      <div className="bg-card border-b p-2 flex gap-2 items-center shadow-sm">
+        <div className="flex gap-1 border-r pr-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => addNode('default')}
+            title="Adicionar nó retangular"
+          >
+            <Square className="h-4 w-4 mr-1" />
+            Retângulo
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => addNode('circle')}
+            title="Adicionar nó circular"
+          >
+            <Circle className="h-4 w-4 mr-1" />
+            Círculo
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => addNode('diamond')}
+            title="Adicionar nó diamante"
+          >
+            <Diamond className="h-4 w-4 mr-1" />
+            Diamante
+          </Button>
+        </div>
+
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={clearAll}
+          className="text-destructive hover:text-destructive"
+        >
+          <Trash2 className="h-4 w-4 mr-1" />
+          Limpar Tudo
+        </Button>
+
+        <div className="ml-auto flex gap-2 text-xs text-muted-foreground items-center bg-muted px-3 py-1 rounded">
+          <span>{nodes.length} nós</span>
+          <span>•</span>
+          <span>{edges.length} conexões</span>
+        </div>
+      </div>
+
       {/* React Flow Canvas */}
-      <div className="flex-1">
+      <div className="flex-1 bg-muted/30">
         <ReactFlow
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
+          nodeTypes={nodeTypes}
           fitView
+          defaultEdgeOptions={{
+            animated: true,
+            style: { stroke: '#6366f1', strokeWidth: 2 },
+          }}
         >
-          <Background variant={BackgroundVariant.Dots} />
+          <Background variant={BackgroundVariant.Dots} gap={16} size={1} />
           <Controls />
-          <MiniMap />
+          <MiniMap
+            nodeColor={(node) => {
+              return node.data.color || '#3b82f6';
+            }}
+            className="bg-background border border-border"
+          />
         </ReactFlow>
+      </div>
+
+      {/* Instruções */}
+      <div className="bg-card border-t p-2 text-xs text-muted-foreground flex gap-4">
+        <span>💡 <strong>Dica:</strong> Clique duas vezes em um nó para editar o texto</span>
+        <span>•</span>
+        <span>Arraste nós para posicioná-los</span>
+        <span>•</span>
+        <span>Conecte nós arrastando das bordas</span>
       </div>
     </div>
   );
