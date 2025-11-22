@@ -53,8 +53,8 @@ const MindMapEditor = () => {
 
       setMapTitle(data.title);
       
-      const nodesList = Array.isArray(data.nodes) ? data.nodes as Node[] : [];
-      const edgesList = Array.isArray(data.edges) ? data.edges as Edge[] : [];
+      const nodesList = Array.isArray(data.nodes) ? data.nodes as unknown as Node[] : [];
+      const edgesList = Array.isArray(data.edges) ? data.edges as unknown as Edge[] : [];
       
       setNodes(nodesList);
       setEdges(edgesList);

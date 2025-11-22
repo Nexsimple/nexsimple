@@ -43,7 +43,7 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             {getSetting('faq_title', 'Suas Perguntas, Nossas Respostas')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
