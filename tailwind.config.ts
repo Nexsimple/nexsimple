@@ -75,9 +75,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['Sora', 'sans-serif'],
-        mono: ['Space Grotesk', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
