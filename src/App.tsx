@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/Login";
+import ForgotPassword from "./pages/admin/ForgotPassword";
+import ResetPassword from "./pages/admin/ResetPassword";
 import AdminLayout from "./components/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminLeads from "./pages/admin/Leads";
@@ -31,6 +33,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+          <Route path="/admin/reset-password" element={<ResetPassword />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="leads" element={<AdminLeads />} />
