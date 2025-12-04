@@ -19,7 +19,7 @@ export default function ForgotPassword() {
 
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/admin/reset-password`,
+        redirectTo: 'https://nexsimple.com/admin/reset-password',
       });
 
       if (error) throw error;
